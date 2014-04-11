@@ -29,9 +29,8 @@
 void ofApp::setup()
 {
     encodedPolyline = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
-
+    
     polyline = Geo::Utils::decodeGeoPolyline(encodedPolyline);
-
 }
 
 
@@ -49,6 +48,6 @@ void ofApp::draw()
         ss << "    [" << i << "] " << polyline[i].getLatitude() << ", " << polyline[i].getLongitude() << std::endl;
     }
 
-    ofDrawBitmapString(ss.str(), ofVec2f(12, 12));
+    ofDrawBitmapString(ss.str(), ofVec2f(8, 14));
 
 }

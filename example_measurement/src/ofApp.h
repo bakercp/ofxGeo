@@ -39,8 +39,8 @@ public:
     void setup();
     void draw();
 
-    Geo::Coordinates london;
-    Geo::Coordinates tokyo;
+    Geo::Coordinate london;
+    Geo::Coordinate tokyo;
 
     double distanceSpherical;
     double distanceHaversine;

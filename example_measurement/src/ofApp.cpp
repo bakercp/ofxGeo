@@ -28,13 +28,12 @@
 
 void ofApp::setup()
 {
-    london = Geo::Coordinates(51.5085300, -0.1257400);
-    tokyo = Geo::Coordinates(35.6148800, 139.5813000);
+    london = Geo::Coordinate(51.5085300, -0.1257400);
+    tokyo = Geo::Coordinate(35.6148800, 139.5813000);
 
     distanceSpherical = Geo::Utils::distanceSpherical(london, tokyo);
     distanceHaversine = Geo::Utils::distanceHaversine(london, tokyo);
     bearingHaversine = Geo::Utils::bearingHaversine(london, tokyo);
-
 }
 
 
@@ -44,10 +43,11 @@ void ofApp::draw()
 
     std::stringstream ss;
 
-    ss << "London to Tokyo" << std::endl;
+    ss << "From: London (" << london << "), UTM [" << Geo::Utils::toUTM(london) << "]" << std::endl;
+    ss << "  To: Tokyo  (" << tokyo  << "), UTM [" << Geo::Utils::toUTM(tokyo)  << "]" << std::endl;
     ss << "    Distance Spherical: " << distanceSpherical << " km" << std::endl;
     ss << "    Distance Haversine: " << distanceHaversine << " km" << std::endl;
     ss << "     Bearing Haversine: " << bearingHaversine << " degrees" << std::endl;
 
-    ofDrawBitmapString(ss.str(), ofVec2f(12, 12));
+    ofDrawBitmapString(ss.str(), ofVec2f(8, 14));
 }

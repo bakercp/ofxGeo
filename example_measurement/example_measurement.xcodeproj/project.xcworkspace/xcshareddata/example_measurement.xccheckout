@@ -5,13 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>F1A8538C-F511-436A-8BDC-3B69A6E97160</string>
+	<string>36FC0FE1-6173-4805-9415-2B2C8E63EDC1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>example_measurement</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3B34514A-1075-456B-8AF0-DAEFD698200B</key>
 		<string>ssh://github.com/bakercp/openFrameworks.git</string>
+		<key>F87B8CE0-6E8E-4E56-A549-4A7232FED0A4</key>
+		<string>ssh://github.com/bakercp/ofxGeo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>addons/ofxGeo/example_measurement/example_measurement.xcodeproj/project.xcworkspace</string>
@@ -19,15 +21,25 @@
 	<dict>
 		<key>3B34514A-1075-456B-8AF0-DAEFD698200B</key>
 		<string>../../../../..</string>
+		<key>F87B8CE0-6E8E-4E56-A549-4A7232FED0A4</key>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/bakercp/openFrameworks.git</string>
+	<string>ssh://github.com/bakercp/ofxGeo.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
 	<string>3B34514A-1075-456B-8AF0-DAEFD698200B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>F87B8CE0-6E8E-4E56-A549-4A7232FED0A4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxGeo</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

@@ -41,5 +41,5 @@ public:
 
     std::string encodedPolyline;
     
-    std::vector<Geo::Coordinates> polyline;
+    std::vector<Geo::Coordinate> polyline;
 };
