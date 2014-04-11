@@ -23,44 +23,49 @@
 // =============================================================================
 
 
-#pragma once
+#include "ofx/Geo/Coordinate.h"
 
 
 namespace ofx {
 namespace Geo {
 
 
-/// \brief A Location defines a latitude / longitude pair.
-class Coordinates
+Coordinate::Coordinate():
+    _longitude(0),
+    _latitude(0)
 {
-public:
-    /// \brief Create 0, 0 Coordinates.
-    Coordinates();
+}
 
-    /// \brief Create a coordinate with given latitude and logitude.
-    /// \param latitude The latitude in degrees.
-    /// \param longitude The longitude in degrees.
-	Coordinates(double latitude, double longitude);
 
-    /// \returns the latitude in degrees.
-    double getLatitude() const;
+Coordinate::Coordinate(double latitude, double longitude):
+    _longitude(longitude),
+    _latitude(latitude)
+{
+}
 
-    /// \returns the longitude in degrees.
-    double getLongitude() const;
 
-    /// \brief Set the latitude in degrees.
-    /// \param latitude the latitude in degrees.
-    void setLatitude(double latitude);
+double Coordinate::getLatitude() const
+{
+    return _latitude;
+}
 
-    /// \brief Set the longitude in degrees.
-    /// \param the longitude in degrees.
-    void setLongitude(double longitude);
 
-private:
-    double _latitude; ///< \brief the latitude in degrees.
-    double _longitude; ///< \brief the longitude in degrees.
+double Coordinate::getLongitude() const
+{
+    return _longitude;
+}
 
-};
+
+void Coordinate::setLatitude(double latitude)
+{
+    _latitude = latitude;
+}
+
+
+void Coordinate::setLongitude(double longitude)
+{
+    _longitude = longitude;
+}
 
 
 } } // namespace ofx::Geo

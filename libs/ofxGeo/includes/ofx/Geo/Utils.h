@@ -34,7 +34,8 @@ namespace ofx {
 namespace Geo {
 
 
-class Coordinates;
+class Coordinate;
+class UTMLocation;
 
 
 /// \brief A collection of utilities for geographic tasks.
@@ -46,35 +47,51 @@ public:
     /// \sa https://developers.google.com/maps/documentation/utilities/polylinealgorithm?csw=1
     /// \sa http://jeffreysambells.com/2010/05/27/decoding-polylines-from-google-maps-direction-api-with-java
     /// \returns A decoded polyline representing the decorded geo coordinates.
-    static std::vector<Coordinates> decodeGeoPolyline(const std::string& encodedPolyline);
+    static std::vector<Coordinate> decodeGeoPolyline(const std::string& encodedPolyline);
 
     /// \brief Get the distance in kilometers between two GeoLocations on earth.
     ///     Calculation uses the great-circle distance uses the approximated
     ///     radius of a sphereical earth in kilometers.
     /// \sa http://www.movable-type.co.uk/scripts/latlong.html
-    /// \param location0 The first location.
-    /// \param location1 The second location.
+    /// \param coordinate0 The first location.
+    /// \param coordinate1 The second location.
     /// \returns the spherical distance in kilometers.
-	static double distanceSpherical(const Coordinates& location0,
-                                    const Coordinates& location1);
+	static double distanceSpherical(const Coordinate& coordinate0,
+                                    const Coordinate& coordinate1);
 
     /// \brief Get the distance in kilometers between two GeoLocations on earth.
     ///     Calculation uses the haversine formula. Uses the approximated
     ///     radius of a sphereical earth in kilometers.
     /// \sa http://www.movable-type.co.uk/scripts/latlong.html
-    /// \param location0 The first location.
-    /// \param location1 The second location.
+    /// \param coordinate0 The first location.
+    /// \param coordinate1 The second location.
     /// \returns the spherical distance in kilometers.
-    static double distanceHaversine(const Coordinates& location0,
-                                    const Coordinates& location1);
-
+    static double distanceHaversine(const Coordinate& coordinate0,
+                                    const Coordinate& coordinate1);
 
     /// \brief Get the bearing in degrees between two Coordinates.
-    /// \param location0 The first location.
-    /// \param location1 The second location.
+    /// \param coordinate0 The first location.
+    /// \param coordinate1 The second location.
     /// \returns the bearing in degrees between two GeoLocations.
-    static double bearingHaversine(const Coordinates& location0,
-                                   const Coordinates& location1);
+    static double bearingHaversine(const Coordinate& coordinate0,
+                                   const Coordinate& coordinate1);
+
+    /// \brief Get the bearing in degrees between two Coordinates.
+    /// \param coordinate0 The first location.
+    /// \param coordinate1 The second location.
+    /// \returns the bearing in degrees between two GeoLocations.
+    static Coordinate midpoint(const Coordinate& coordinate0,
+                               const Coordinate& coordinate1);
+
+    /// \brief Convert the Coordinate to a UTMLocation using the WGS84 Datum.
+    /// \param coordinate The location.
+    /// \returns the converted UTMLocation.
+    static UTMLocation toUTM(const Coordinate& coordinate);
+
+    /// \brief Convert the UTMLocation to a Coordinate using the WGS84 Datum.
+    /// \param location The UTMLocation.
+    /// \returns the converted Coordinate.
+    static Coordinate toCoordinate(const UTMLocation& location);
 
     static const double EARTH_RADIUS_KM;
         ///< The approximate radius of a spherical earth in kilometers.

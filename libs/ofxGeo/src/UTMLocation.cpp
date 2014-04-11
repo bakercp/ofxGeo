@@ -23,48 +23,62 @@
 // =============================================================================
 
 
-#include "ofx/Geo/Coordinates.h"
+#include "ofx/Geo/UTMLocation.h"
 
 
 namespace ofx {
 namespace Geo {
 
 
-Coordinates::Coordinates():
-    _longitude(0),
-    _latitude(0)
+UTMLocation::UTMLocation():
+    _northing(0),
+    _easting(0),
+    _zone(1)
 {
 }
 
 
-Coordinates::Coordinates(double latitude, double longitude):
-    _longitude(longitude),
-    _latitude(latitude)
+UTMLocation::UTMLocation(double northing, double easting, char zone):
+    _northing(northing),
+    _easting(easting),
+    _zone(zone)
 {
 }
 
 
-double Coordinates::getLatitude() const
+double UTMLocation::getNorthing() const
 {
-    return _latitude;
+    return _northing;
 }
 
 
-double Coordinates::getLongitude() const
+double UTMLocation::getEasting() const
 {
-    return _longitude;
+    return _easting;
 }
 
 
-void Coordinates::setLatitude(double latitude)
+char UTMLocation::getZone() const
 {
-    _latitude = latitude;
+    return _zone;
 }
 
 
-void Coordinates::setLongitude(double longitude)
+void UTMLocation::setNorthing(double northing)
 {
-    _longitude = longitude;
+    _northing = northing;
+}
+
+
+void UTMLocation::setEasting(double easting)
+{
+    _easting = easting;
+}
+
+
+void UTMLocation::setZone(char zone)
+{
+    _zone = zone;
 }
 
 

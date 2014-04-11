@@ -23,7 +23,57 @@
 // =============================================================================
 
 
-#include "ofx/Geo/Coordinate.h"
-#include "ofx/Geo/UTMLocation.h"
-#include "ofx/Geo/Utils.h"
-#include "UTM/UTM.h"
+#pragma once
+
+
+#include <iostream>
+
+
+namespace ofx {
+namespace Geo {
+
+
+/// \brief A Location defines a latitude / longitude pair.
+class Coordinate
+{
+public:
+    /// \brief Create 0, 0 Coordinates.
+    Coordinate();
+
+    /// \brief Create a coordinate with given latitude and logitude.
+    /// \param latitude The latitude in degrees.
+    /// \param longitude The longitude in degrees.
+	Coordinate(double latitude, double longitude);
+
+    /// \returns the latitude in degrees.
+    double getLatitude() const;
+
+    /// \returns the longitude in degrees.
+    double getLongitude() const;
+
+    /// \brief Set the latitude in degrees.
+    /// \param latitude the latitude in degrees.
+    void setLatitude(double latitude);
+
+    /// \brief Set the longitude in degrees.
+    /// \param the longitude in degrees.
+    void setLongitude(double longitude);
+
+    friend std::ostream& operator << (std::ostream& os,
+                                      const Coordinate& coordinate);
+
+private:
+    double _latitude; ///< \brief the latitude in degrees.
+    double _longitude; ///< \brief the longitude in degrees.
+
+};
+
+
+inline std::ostream& operator<<(std::ostream& os, const Coordinate& coordinate)
+{
+    os << coordinate.getLatitude() << ", " << coordinate.getLongitude();
+    return os;
+}
+
+
+} } // namespace ofx::Geo
