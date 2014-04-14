@@ -28,6 +28,7 @@
 
 #include <string>
 #include <vector>
+#include "ofVec2f.h"
 
 
 namespace ofx {
@@ -92,6 +93,16 @@ public:
     /// \param location The UTMLocation.
     /// \returns the converted Coordinate.
     static Coordinate toCoordinate(const UTMLocation& location);
+
+    /// \brief Convert the UTMLocation to an ofVec2f.
+    /// \param location The UTMLocation.
+    /// \returns the converted location.
+    static ofVec2f toVec(const UTMLocation& location);
+
+    /// \brief Convert the Coordinate to an ofVec2f via a UTM Location.
+    /// \param location The coordinate.
+    /// \returns the converted location.
+    static ofVec2f toVec(const Coordinate& coordinate);
 
     static const double EARTH_RADIUS_KM;
         ///< The approximate radius of a spherical earth in kilometers.
