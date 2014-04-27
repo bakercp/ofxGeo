@@ -33,7 +33,7 @@ namespace ofx {
 namespace Geo {
 
 
-/// \brief Defines a location in UTM (Universal Transverse Mercator) space.
+/// \brief Defines a location in Universal Transverse Mercator (UTM) space.
 /// \sa http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system
 class UTMLocation
 {
@@ -44,6 +44,9 @@ public:
     /// \brief Create an empty UTMLocation with the given values.
     /// \param northing
 	UTMLocation(double northing, double easting, const std::string& zone);
+
+    /// \brief Destory the UTMLocation.
+    virtual ~UTMLocation();
 
     /// \returns the northing in meters.
     double getNorthing() const;
@@ -71,9 +74,13 @@ public:
 
 private:
     double _northing;
-    double _easting;
-    std::string _zone;
+        ///< \brief The "northing" coordinate in the UTM system.
 
+    double _easting;
+        ///< \brief The "easting" coordinate in the UTM system.
+
+    std::string _zone;
+        ///< \brief The Zone in the UTM system.
 };
 
 
