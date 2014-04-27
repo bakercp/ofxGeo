@@ -137,8 +137,8 @@ double Utils::bearingHaversine(const Coordinate& coordinate0,
     double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
     double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
 
-    double s0 = sin(deltaLatRad / 2.0);
-    double s1 = sin(deltaLonRad / 2.0);
+//    double s0 = sin(deltaLatRad / 2.0);
+//    double s1 = sin(deltaLonRad / 2.0);
 
     double y = sin(deltaLonRad) * cos(lat1);
     double x = cos(lat0) * cos(lat1) -
@@ -153,25 +153,28 @@ Coordinate Utils::midpoint(const Coordinate& coordinate0,
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
+//    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
     double deltaLonRad = DEG_TO_RAD * (coordinate0.getLongitude() - coordinate1.getLongitude());
 
     double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
     double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
 
     double lon0 = DEG_TO_RAD * coordinate1.getLongitude();
-    double lon1 = DEG_TO_RAD * coordinate1.getLongitude();
+//    double lon1 = DEG_TO_RAD * coordinate1.getLongitude();
 
     double Bx = cos(lat1) * cos(deltaLonRad);
     double By = cos(lat1) * sin(deltaLonRad);
 
+    double cL0 = (cos(lat0) + Bx);
+
     double t0 = sin(lat0) + sin(lat1);
-    double t1 = sqrt( (cos(lat0) + Bx ) * (cos(lat0) + Bx) + By * By );
+    double t1 = sqrt(cL0 * cL0 + By * By);
 
     double lat3 = atan2(t0, t1);
-    double lon3 = lon0 + atan2(By, cos(lat0) + Bx);
+    double lon3 = atan2(By, cL0) + lon0;
 
     return Coordinate(lat3, lon3);
+
 }
 
 
