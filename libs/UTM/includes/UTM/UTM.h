@@ -97,7 +97,7 @@ namespace UTM
      */
     static inline void LLtoUTM(const double Lat, const double Long,
                                double &UTMNorthing, double &UTMEasting,
-                               char* UTMZone)
+                               char& UTMZoneNumber, char& UTMZoneLetter)
     {
         double a = WGS84_A;
         double eccSquared = UTM_E2;
@@ -133,7 +133,10 @@ namespace UTM
         LongOriginRad = LongOrigin * DEG_TO_RAD;
 
         //compute the UTM Zone from the latitude and longitude
-        sprintf(UTMZone, "%d%c", ZoneNumber, UTMLetterDesignator(Lat));
+//        sprintf(UTMZone, "%d", ZoneNumber);//, UTMLetterDesignator(Lat));
+
+        UTMZoneNumber = (int)ZoneNumber;
+        UTMZoneLetter = UTMLetterDesignator(Lat);
 
         eccPrimeSquared = (eccSquared)/(1-eccSquared);
 
@@ -177,7 +180,7 @@ namespace UTM
      * Written by Chuck Gantz- chuck.gantz@globalstar.com
      */
     static inline void UTMtoLL(const double UTMNorthing, const double UTMEasting,
-                               const char* UTMZone, double& Lat,  double& Long )
+                               int UTMZoneNumber, double& Lat,  double& Long )
     {
         double k0 = UTM_K0;
         double a = WGS84_A;
@@ -188,21 +191,21 @@ namespace UTM
         double LongOrigin;
         double mu, phi1Rad;
         double x, y;
-        int ZoneNumber;
+//        int ZoneNumber;
         char* ZoneLetter;
 
         x = UTMEasting - 500000.0; //remove 500,000 meter offset for longitude
         y = UTMNorthing;
 
-        ZoneNumber = strtoul(UTMZone, &ZoneLetter, 10);
-        if((*ZoneLetter - 'N') < 0)
-        {
-            //remove 10,000,000 meter offset used for southern hemisphere
-            y -= 10000000.0;
-        }
+//        ZoneNumber = strtoul(UTMZone, &ZoneLetter, 10);
+//        if((*ZoneLetter - 'N') < 0)
+//        {
+//            //remove 10,000,000 meter offset used for southern hemisphere
+//            y -= 10000000.0;
+//        }
 
         //+3 puts origin in middle of zone
-        LongOrigin = (ZoneNumber - 1)*6 - 180 + 3;
+        LongOrigin = (UTMZoneNumber - 1)*6 - 180 + 3;
         eccPrimeSquared = (eccSquared)/(1-eccSquared);
         
         M = y / k0;

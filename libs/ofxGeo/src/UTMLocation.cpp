@@ -33,17 +33,20 @@ namespace Geo {
 UTMLocation::UTMLocation():
     _northing(0),
     _easting(0),
-    _zone("")
+    _zoneNumber(0),
+    _zoneLetter('Z')
 {
 }
 
 
 UTMLocation::UTMLocation(double northing,
                          double easting,
-                         const std::string& zone):
+                         int zoneNumber,
+                         char zoneLetter):
     _northing(northing),
     _easting(easting),
-    _zone(zone)
+    _zoneNumber(zoneNumber),
+    _zoneLetter(zoneLetter)
 {
 }
 
@@ -65,9 +68,15 @@ double UTMLocation::getEasting() const
 }
 
 
-const std::string& UTMLocation::getZone() const
+int UTMLocation::getZoneNumber() const
 {
-    return _zone;
+    return _zoneNumber;
+}
+
+
+char UTMLocation::getZoneLetter() const
+{
+    return _zoneLetter;
 }
 
 
@@ -83,9 +92,15 @@ void UTMLocation::setEasting(double easting)
 }
 
 
-void UTMLocation::setZone(const std::string& zone)
+void UTMLocation::setZoneNumber(int zoneNumber)
 {
-    _zone = zone;
+    _zoneNumber = zoneNumber;
+}
+
+
+void UTMLocation::setZoneLetter(char zoneLetter)
+{
+    _zoneLetter = zoneLetter;
 }
 
 

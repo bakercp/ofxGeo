@@ -179,17 +179,17 @@ UTMLocation Utils::toUTM(const Coordinate& coordinate)
     double northing;
     double easting;
 
-    char zoneBuffer[1024];
+    int zoneNumber;
+    char zoneLetter;
 
     UTM::LLtoUTM(coordinate.getLatitude(),
                  coordinate.getLongitude(),
                  northing,
                  easting,
-                 zoneBuffer);
+                 zoneNumber,
+                 zoneLetter);
 
-    std::string zone = (zoneBuffer == 0) ? "" : std::string(zoneBuffer);
-
-    return UTMLocation(northing, easting, zone);
+    return UTMLocation(northing, easting, zoneLetter, zoneNumber);
 }
 
 Coordinate Utils::toCoordinate(const UTMLocation& location)
@@ -199,7 +199,7 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
 
     UTM::UTMtoLL(location.getNorthing(),
                  location.getEasting(),
-                 location.getZone().c_str(),
+                 (char)location.getZoneNumber(),
                  latitude,
                  longitude);
 

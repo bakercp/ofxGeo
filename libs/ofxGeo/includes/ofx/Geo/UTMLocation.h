@@ -44,8 +44,12 @@ public:
     /// \brief Create an empty UTMLocation with the given values.
     /// \param northing the northing in meters.
     /// \param easting the easting in meters.
-    /// \param zone the zone id.
-	UTMLocation(double northing, double easting, const std::string& zone);
+    /// \param zoneNumber The UTM Zone number.
+    /// \param zoneLetter The UTM Zone letter.
+	UTMLocation(double northing,
+                double easting,
+                int zoneNumber,
+                char zoneLetter);
 
     /// \brief Destory the UTMLocation.
     virtual ~UTMLocation();
@@ -58,9 +62,13 @@ public:
     /// \returns the easting in meters.
     double getEasting() const;
 
-    /// \brief Get the zone id.
-    /// \returns the zone id.
-    const std::string& getZone() const;
+    /// \brief Get the zone number.
+    /// \returns the zone number.
+    int getZoneNumber() const;
+
+    /// \brief Get the zone letter.
+    /// \returns the zone letter.
+    char getZoneLetter() const;
 
     /// \brief Set the northing in meters.
     /// \param northing the northing in meters.
@@ -70,9 +78,13 @@ public:
     /// \param easting the easting in meters.
     void setEasting(double easting);
 
-    /// \brief Set the zone id.
-    /// \param zone the zone id.
-    void setZone(const std::string& zone);
+    /// \brief Set the zone number.
+    /// \param zone the zone number.
+    void setZoneNumber(int zoneNumber);
+
+    /// \brief Set the zone letter.
+    /// \param zone the zone letter.
+    void setZoneLetter(char zoneLetter);
 
     /// \brief Stream output.
     /// \param os the std::ostream.
@@ -88,14 +100,20 @@ private:
     double _easting;
         ///< \brief The "easting" coordinate in the UTM system.
 
-    std::string _zone;
-        ///< \brief The Zone in the UTM system.
+    int _zoneNumber;
+        ///< \brief The Zone number in the UTM system.
+
+    char _zoneLetter;
+        ///< \brief The Zone letter in the UTM system.
 };
 
 
 inline std::ostream& operator<<(std::ostream& os, const UTMLocation& location)
 {
-    os << location.getNorthing() << ", " << location.getEasting() << ", " << location.getZone();
+    os << location.getNorthing() << ", ";
+    os << location.getEasting()  << ", ";
+    os << location.getZoneNumber() << ", ";
+    os << location.getZoneLetter();
     return os;
 }
 
