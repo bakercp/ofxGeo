@@ -34,7 +34,11 @@
 
 /// \brief This is until we actually have ofVec2d.
 typedef ofVec2f ofVec2d;
+
+/// \brief This is until we actually have ofVec3d.
 typedef ofVec3f ofVec3d;
+
+/// \brief This is until we actually have ofVec4d.
 typedef ofVec4f ofVec4d;
 
 
