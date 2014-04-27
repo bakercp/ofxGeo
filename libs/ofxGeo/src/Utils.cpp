@@ -41,7 +41,7 @@ std::vector<Coordinate> Utils::decodeGeoPolyline(const std::string& encodedGeoPo
 {
     std::vector<Coordinate> polyline;
 
-    int index = 0;
+    std::size_t index = 0;
 
     std::size_t len = encodedGeoPolyline.length();
 
