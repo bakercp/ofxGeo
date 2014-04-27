@@ -28,6 +28,7 @@
 #include "ofx/Geo/UTMLocation.h"
 #include "UTM/UTM.h"
 #include "ofConstants.h"
+#include "ofMath.h"
 
 
 namespace ofx {
@@ -91,10 +92,10 @@ std::vector<Coordinate> Utils::decodeGeoPolyline(const std::string& encodedGeoPo
 double Utils::distanceSpherical(const Coordinate& coordinate0,
                                 const Coordinate& coordinate1)
 {
-    double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
-    double lon0 = DEG_TO_RAD * coordinate0.getLongitude();
-    double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
-    double lon1 = DEG_TO_RAD * coordinate1.getLongitude();
+    double lat0 = coordinate0.getLatitudeRad();
+    double lon0 = coordinate0.getLongitudeRad();
+    double lat1 = coordinate1.getLatitudeRad();
+    double lon1 = coordinate1.getLongitudeRad();
 
     double sum = sin(lat0) * sin(lat1)
                + cos(lat0) * cos(lat1) * cos(lon1 - lon0);
@@ -109,14 +110,14 @@ double Utils::distanceHaversine(const Coordinate& coordinate0,
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-    double deltaLatRad = DEG_TO_RAD * (coordinate1.getLatitude() - coordinate0.getLatitude());
-    double deltaLonRad = DEG_TO_RAD * (coordinate1.getLongitude() - coordinate0.getLongitude());
+    double deltaLat = coordinate1.getLatitudeRad() - coordinate0.getLatitudeRad();
+    double deltaLon = coordinate1.getLongitudeRad() - coordinate0.getLongitudeRad();
 
-    double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
-    double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
+    double lat0 = coordinate0.getLatitudeRad();
+    double lat1 = coordinate1.getLatitudeRad();
 
-    double s0 = sin(deltaLatRad / 2.0);
-    double s1 = sin(deltaLonRad / 2.0);
+    double s0 = sin(deltaLat / 2.0);
+    double s1 = sin(deltaLon / 2.0);
 
     double a = s0 * s0 + s1 * s1 * cos(lat0) * cos(lat1);
 
@@ -131,47 +132,42 @@ double Utils::bearingHaversine(const Coordinate& coordinate0,
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-//    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
-    double deltaLonRad = DEG_TO_RAD * (coordinate0.getLongitude() - coordinate1.getLongitude());
+    double deltaLon = coordinate1.getLongitudeRad() - coordinate0.getLongitudeRad();
 
-    double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
-    double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
+    double lat0 = coordinate0.getLatitudeRad();
+    double lat1 = coordinate1.getLatitudeRad();
 
-//    double s0 = sin(deltaLatRad / 2.0);
-//    double s1 = sin(deltaLonRad / 2.0);
-
-    double y = sin(deltaLonRad) * cos(lat1);
+    double y = sin(deltaLon) * cos(lat1);
     double x = cos(lat0) * cos(lat1) -
-               sin(lat0) * cos(lat1) * cos(deltaLonRad);
+               sin(lat0) * cos(lat1) * cos(deltaLon);
 
-    return RAD_TO_DEG * atan2(y, x);
+    return ofWrapDegrees(RAD_TO_DEG * atan2(y, x));
+
 }
 
 
 Coordinate Utils::midpoint(const Coordinate& coordinate0,
-                            const Coordinate& coordinate1)
+                           const Coordinate& coordinate1)
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-//    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
-    double deltaLonRad = DEG_TO_RAD * (coordinate0.getLongitude() - coordinate1.getLongitude());
+    double deltaLon = coordinate1.getLongitudeRad() - coordinate0.getLongitudeRad();
 
-    double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
-    double lat1 = DEG_TO_RAD * coordinate1.getLatitude();
+    double lat0 = coordinate0.getLatitudeRad();
+    double lat1 = coordinate1.getLatitudeRad();
 
-    double lon0 = DEG_TO_RAD * coordinate1.getLongitude();
-//    double lon1 = DEG_TO_RAD * coordinate1.getLongitude();
+    double lon0 = coordinate1.getLongitudeRad();
 
-    double Bx = cos(lat1) * cos(deltaLonRad);
-    double By = cos(lat1) * sin(deltaLonRad);
+    double Bx = cos(lat1) * cos(deltaLon);
+    double By = cos(lat1) * sin(deltaLon);
 
     double cL0 = (cos(lat0) + Bx);
 
     double t0 = sin(lat0) + sin(lat1);
     double t1 = sqrt(cL0 * cL0 + By * By);
 
-    double lat3 = atan2(t0, t1);
-    double lon3 = atan2(By, cL0) + lon0;
+    double lat3 = RAD_TO_DEG * atan2(t0, t1);
+    double lon3 = RAD_TO_DEG * atan2(By, cL0) + lon0;
 
     return Coordinate(lat3, lon3);
 
