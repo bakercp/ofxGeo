@@ -46,4 +46,6 @@ public:
     double distanceHaversine;
     double bearingHaversine;
 
+    Geo::Coordinate midpoint;
+
 };

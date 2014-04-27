@@ -34,6 +34,7 @@ void ofApp::setup()
     distanceSpherical = Geo::Utils::distanceSpherical(london, tokyo);
     distanceHaversine = Geo::Utils::distanceHaversine(london, tokyo);
     bearingHaversine = Geo::Utils::bearingHaversine(london, tokyo);
+    midpoint = Geo::Utils::midpoint(london, tokyo);
 }
 
 
@@ -48,6 +49,7 @@ void ofApp::draw()
     ss << "    Distance Spherical: " << distanceSpherical << " km" << std::endl;
     ss << "    Distance Haversine: " << distanceHaversine << " km" << std::endl;
     ss << "     Bearing Haversine: " << bearingHaversine << " degrees" << std::endl;
+    ss << "              Midpoint: (" << midpoint << ")" << std::endl;
 
     ofDrawBitmapString(ss.str(), ofVec2f(8, 14));
 }
