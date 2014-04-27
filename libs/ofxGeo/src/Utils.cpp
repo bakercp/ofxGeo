@@ -131,7 +131,7 @@ double Utils::bearingHaversine(const Coordinate& coordinate0,
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
+//    double deltaLatRad = DEG_TO_RAD * (coordinate0.getLatitude() - coordinate1.getLatitude());
     double deltaLonRad = DEG_TO_RAD * (coordinate0.getLongitude() - coordinate1.getLongitude());
 
     double lat0 = DEG_TO_RAD * coordinate0.getLatitude();
