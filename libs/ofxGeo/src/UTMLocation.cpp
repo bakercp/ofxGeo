@@ -48,6 +48,11 @@ UTMLocation::UTMLocation(double northing,
 }
 
 
+UTMLocation::~UTMLocation()
+{
+}
+
+
 double UTMLocation::getNorthing() const
 {
     return _northing;
