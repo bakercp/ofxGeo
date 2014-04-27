@@ -50,15 +50,15 @@ public:
     /// \brief Destory the UTMLocation.
     virtual ~UTMLocation();
 
-    /// \breif Get the northing in meters.
+    /// \brief Get the northing in meters.
     /// \returns the northing in meters.
     double getNorthing() const;
 
-    /// \breif Get the easting in meters.
+    /// \brief Get the easting in meters.
     /// \returns the easting in meters.
     double getEasting() const;
 
-    /// \breif Get the zone id.
+    /// \brief Get the zone id.
     /// \returns the zone id.
     const std::string& getZone() const;
 
