@@ -29,6 +29,11 @@
 #include <string>
 #include <vector>
 #include "ofVec2f.h"
+#include "ofVec3f.h"
+
+
+typedef ofVec2f ofVec2d;
+typedef ofVec3f ofVec3d;
 
 
 namespace ofx {

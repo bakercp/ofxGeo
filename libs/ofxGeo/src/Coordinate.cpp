@@ -31,15 +31,15 @@ namespace Geo {
 
 
 Coordinate::Coordinate():
-    _longitude(0),
-    _latitude(0)
+    _latitude(0),
+    _longitude(0)
 {
 }
 
 
 Coordinate::Coordinate(double latitude, double longitude):
-    _longitude(longitude),
-    _latitude(latitude)
+    _latitude(latitude),
+    _longitude(longitude)
 {
 }
 
