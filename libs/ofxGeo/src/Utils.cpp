@@ -207,13 +207,13 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
 }
 
 
-ofVec2f Utils::toVec(const UTMLocation& location)
+ofVec2d Utils::toVec(const UTMLocation& location)
 {
     return ofVec2f(location.getEasting(), location.getNorthing());
 }
 
 
-ofVec2f Utils::toVec(const Coordinate& coordinate)
+ofVec2d Utils::toVec(const Coordinate& coordinate)
 {
     return toVec(toUTM(coordinate));
 }

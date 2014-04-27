@@ -32,8 +32,10 @@
 #include "ofVec3f.h"
 
 
+/// \brief This is until we actually have ofVec2d.
 typedef ofVec2f ofVec2d;
 typedef ofVec3f ofVec3d;
+typedef ofVec4f ofVec4d;
 
 
 namespace ofx {
@@ -102,15 +104,15 @@ public:
     /// \brief Convert the UTMLocation to an ofVec2f.
     /// \param location The UTMLocation.
     /// \returns the converted location.
-    static ofVec2f toVec(const UTMLocation& location);
+    static ofVec2d toVec(const UTMLocation& location);
 
     /// \brief Convert the Coordinate to an ofVec2f via a UTM Location.
     /// \param location The coordinate.
     /// \returns the converted location.
-    static ofVec2f toVec(const Coordinate& coordinate);
+    static ofVec2d toVec(const Coordinate& coordinate);
 
     static const double EARTH_RADIUS_KM;
-        ///< The approximate radius of a spherical earth in kilometers.
+        ///< \brief The approximate radius of a spherical earth in kilometers.
 
 };
 
