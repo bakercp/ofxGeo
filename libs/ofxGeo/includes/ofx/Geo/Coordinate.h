@@ -33,27 +33,31 @@ namespace ofx {
 namespace Geo {
 
 
-/// \brief A Location defines a latitude / longitude pair.
+/// \brief A Location defines a latitude / longitude pair in degrees.
 class Coordinate
 {
 public:
-    /// \brief Create 0, 0 Coordinates.
+    /// \brief Create a 0, 0 Coordinate.
     Coordinate();
 
-    /// \brief Create a coordinate with given latitude and logitude.
+    /// \brief Create a Coordinate with given latitude and logitude.
     /// \param latitude The latitude in degrees.
     /// \param longitude The longitude in degrees.
 	Coordinate(double latitude, double longitude);
 
+    /// \brief Get the latitude in degrees.
     /// \returns the latitude in degrees.
     double getLatitude() const;
 
+    /// \brief Get the longitude in degrees.
     /// \returns the longitude in degrees.
     double getLongitude() const;
 
-    /// \returns the longitude in radians
+    /// \brief Get the latitude in radians.
+    /// \returns the latitude in radians
     double getLatitudeRad() const;
 
+    /// \brief Get the longitude in radians.
     /// \returns the longitude in radians
     double getLongitudeRad() const;
 
@@ -62,9 +66,13 @@ public:
     void setLatitude(double latitude);
 
     /// \brief Set the longitude in degrees.
-    /// \param the longitude in degrees.
+    /// \param longitude the longitude in degrees.
     void setLongitude(double longitude);
 
+    /// \brief Stream output.
+    /// \param os the std::ostream.
+    /// \param coordinate The Coordiante to output.
+    /// \returns the updated std::ostream reference.
     friend std::ostream& operator << (std::ostream& os,
                                       const Coordinate& coordinate);
 

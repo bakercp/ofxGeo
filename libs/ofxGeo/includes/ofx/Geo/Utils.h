@@ -107,7 +107,7 @@ public:
     static ofVec2d toVec(const UTMLocation& location);
 
     /// \brief Convert the Coordinate to an ofVec2f via a UTM Location.
-    /// \param location The coordinate.
+    /// \param coordinate The Coordinate.
     /// \returns the converted location.
     static ofVec2d toVec(const Coordinate& coordinate);
 
