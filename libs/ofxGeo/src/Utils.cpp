@@ -201,8 +201,6 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
     double latitude = 0;
     double longitude = 0;
 
-//    std::string zone = location.getZone();
-
     UTM::UTMtoLL(location.getNorthing(),
                  location.getEasting(),
                  location.getZone().c_str(),
