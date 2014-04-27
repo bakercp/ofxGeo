@@ -43,7 +43,7 @@ public:
 
     /// \brief Create an empty UTMLocation with the given values.
     /// \param northing
-	UTMLocation(double northing, double easting, char zone);
+	UTMLocation(double northing, double easting, const std::string& zone);
 
     /// \returns the northing in meters.
     double getNorthing() const;
@@ -52,7 +52,7 @@ public:
     double getEasting() const;
 
     /// \returns the zone id.
-    char getZone() const;
+    const std::string& getZone() const;
 
     /// \brief Set the northing in meters.
     /// \param northing the northing in meters.
@@ -64,7 +64,7 @@ public:
 
     /// \brief Set the zone id.
     /// \param the zone id.
-    void setZone(char zone);
+    void setZone(const std::string& zone);
 
     friend std::ostream& operator << (std::ostream& os,
                                       const UTMLocation& location);
@@ -72,14 +72,14 @@ public:
 private:
     double _northing;
     double _easting;
-    char _zone;
+    std::string _zone;
 
 };
 
 
 inline std::ostream& operator<<(std::ostream& os, const UTMLocation& location)
 {
-    os << location.getNorthing() << ", " << location.getEasting() << ", " << (int)location.getZone();
+    os << location.getNorthing() << ", " << location.getEasting() << ", " << location.getZone();
     return os;
 }
 

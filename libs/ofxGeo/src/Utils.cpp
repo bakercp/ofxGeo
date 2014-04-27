@@ -182,13 +182,16 @@ UTMLocation Utils::toUTM(const Coordinate& coordinate)
 {
     double northing;
     double easting;
-    char zone;
+
+    char zoneBuffer[1024];
 
     UTM::LLtoUTM(coordinate.getLatitude(),
                  coordinate.getLongitude(),
                  northing,
                  easting,
-                 &zone);
+                 zoneBuffer);
+
+    std::string zone = (zoneBuffer == 0) ? "" : std::string(zoneBuffer);
 
     return UTMLocation(northing, easting, zone);
 }
@@ -198,11 +201,11 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
     double latitude = 0;
     double longitude = 0;
 
-    char zone = location.getZone();
+//    std::string zone = location.getZone();
 
     UTM::UTMtoLL(location.getNorthing(),
                  location.getEasting(),
-                 &zone,
+                 location.getZone().c_str(),
                  latitude,
                  longitude);
 
