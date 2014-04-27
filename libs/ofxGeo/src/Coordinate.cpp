@@ -24,6 +24,7 @@
 
 
 #include "ofx/Geo/Coordinate.h"
+#include "ofConstants.h"
 
 
 namespace ofx {
@@ -53,6 +54,18 @@ double Coordinate::getLatitude() const
 double Coordinate::getLongitude() const
 {
     return _longitude;
+}
+
+
+double Coordinate::getLatitudeRad() const
+{
+    return _latitude * DEG_TO_RAD;
+}
+
+
+double Coordinate::getLongitudeRad() const
+{
+    return _longitude * DEG_TO_RAD;
 }
 
 

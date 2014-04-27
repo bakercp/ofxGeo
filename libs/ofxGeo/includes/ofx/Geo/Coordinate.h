@@ -51,6 +51,12 @@ public:
     /// \returns the longitude in degrees.
     double getLongitude() const;
 
+    /// \returns the longitude in radians
+    double getLatitudeRad() const;
+
+    /// \returns the longitude in radians
+    double getLongitudeRad() const;
+
     /// \brief Set the latitude in degrees.
     /// \param latitude the latitude in degrees.
     void setLatitude(double latitude);
