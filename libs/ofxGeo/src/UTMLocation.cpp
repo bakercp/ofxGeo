@@ -31,18 +31,18 @@ namespace Geo {
 
 
 UTMLocation::UTMLocation():
-    _northing(0),
     _easting(0),
+    _northing(0),
     _zone("")
 {
 }
 
 
-UTMLocation::UTMLocation(double northing,
-                         double easting,
+UTMLocation::UTMLocation(double easting,
+                         double northing,
                          const std::string& zone):
-    _northing(northing),
     _easting(easting),
+    _northing(northing),
     _zone(zone)
 {
 }
@@ -53,15 +53,15 @@ UTMLocation::~UTMLocation()
 }
 
 
-double UTMLocation::getNorthing() const
-{
-    return _northing;
-}
-
-
 double UTMLocation::getEasting() const
 {
     return _easting;
+}
+
+    
+double UTMLocation::getNorthing() const
+{
+    return _northing;
 }
 
 
@@ -71,15 +71,15 @@ const std::string& UTMLocation::getZone() const
 }
 
 
-void UTMLocation::setNorthing(double northing)
-{
-    _northing = northing;
-}
-
-
 void UTMLocation::setEasting(double easting)
 {
     _easting = easting;
+}
+
+    
+void UTMLocation::setNorthing(double northing)
+{
+    _northing = northing;
 }
 
 
@@ -87,6 +87,50 @@ void UTMLocation::setZone(const std::string& zone)
 {
     _zone = zone;
 }
+
+
+std::string UTMLocation::toString() const
+{
+    std::stringstream ss;
+    ss << getEasting() << ", " << getNorthing() << ", " << getZone();
+    return ss.str();
+}
+
+
+ElevatedUTMLocation::ElevatedUTMLocation():
+    _elevation(0)
+{
+}
+
+
+ElevatedUTMLocation::ElevatedUTMLocation(double easting,
+                                         double northing,
+                                         const std::string& zone,
+                                         double elevation):
+    UTMLocation(easting, northing, zone),
+    _elevation(elevation)
+{
+}
+
+
+ElevatedUTMLocation::~ElevatedUTMLocation()
+{
+}
+
+
+double ElevatedUTMLocation::getElevation() const
+{
+    return _elevation;
+}
+
+
+std::string ElevatedUTMLocation::toString() const
+{
+    std::stringstream ss;
+    ss << getEasting() << ", " << getNorthing() << ", " << getZone() << ", " << getElevation();
+    return ss.str();
+}
+
 
 
 } } // namespace ofx::Geo

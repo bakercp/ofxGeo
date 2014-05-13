@@ -27,6 +27,7 @@
 
 
 #include <iostream>
+#include <sstream>
 
 
 namespace ofx {
@@ -42,37 +43,41 @@ public:
     UTMLocation();
 
     /// \brief Create an empty UTMLocation with the given values.
-    /// \param northing the northing in meters.
     /// \param easting the easting in meters.
+    /// \param northing the northing in meters.
     /// \param zone the zone id.
-	UTMLocation(double northing, double easting, const std::string& zone);
+	UTMLocation(double easting, double northing, const std::string& zone);
 
     /// \brief Destory the UTMLocation.
     virtual ~UTMLocation();
-
-    /// \brief Get the northing in meters.
-    /// \returns the northing in meters.
-    double getNorthing() const;
 
     /// \brief Get the easting in meters.
     /// \returns the easting in meters.
     double getEasting() const;
 
+    /// \brief Get the northing in meters.
+    /// \returns the northing in meters.
+    double getNorthing() const;
+
     /// \brief Get the zone id.
     /// \returns the zone id.
     const std::string& getZone() const;
-
-    /// \brief Set the northing in meters.
-    /// \param northing the northing in meters.
-    void setNorthing(double northing);
 
     /// \brief Set the easting in meters.
     /// \param easting the easting in meters.
     void setEasting(double easting);
 
+    /// \brief Set the northing in meters.
+    /// \param northing the northing in meters.
+    void setNorthing(double northing);
+
     /// \brief Set the zone id.
     /// \param zone the zone id.
     void setZone(const std::string& zone);
+
+    /// \brief Get coordinate as a string.
+    /// \returns the a comma separated easting, northing, zone.
+    std::string toString() const;
 
     /// \brief Stream output.
     /// \param os the std::ostream.
@@ -82,20 +87,76 @@ public:
                                       const UTMLocation& location);
 
 private:
-    double _northing;
-        ///< \brief The "northing" coordinate in the UTM system.
+    struct
+    {
+        /// \brief The "easting" coordinate in the UTM system.
+        double _easting;
 
-    double _easting;
-        ///< \brief The "easting" coordinate in the UTM system.
+        /// \brief The "northing" coordinate in the UTM system.
+        double _northing;
+    };
 
+    /// \brief The Zone in the UTM system.
     std::string _zone;
-        ///< \brief The Zone in the UTM system.
+
 };
 
 
 inline std::ostream& operator<<(std::ostream& os, const UTMLocation& location)
 {
-    os << location.getNorthing() << ", " << location.getEasting() << ", " << location.getZone();
+    os << location.toString();
+    return os;
+}
+
+
+class ElevatedUTMLocation: public UTMLocation
+{
+public:
+    /// \brief Create a 0, 0, 0 ElevatedUTMLocation.
+    ElevatedUTMLocation();
+
+    /// \brief Create a Coordinate with given latitude and logitude.
+    /// \param latitude The latitude in degrees.
+    /// \param longitude The longitude in degrees.
+    ElevatedUTMLocation(double easting,
+                        double northing,
+                        const std::string& zone,
+                        double elevation);
+
+    /// \brief Destroy the Coordinate.
+    virtual ~ElevatedUTMLocation();
+
+    /// \brief Get the elevation in meters.
+    /// \returns the elevation in meters.
+    double getElevation() const;
+
+    /// \brief Set the elevation in meters.
+    /// \param latitude the elevation in meters.
+    void setElevation(double elevation);
+
+    /// \brief Get coordinate as a string.
+    /// \returns the a comma separated easting, northing, zone, elevation.
+    std::string toString() const;
+
+    /// \brief Stream output.
+    /// \param os the std::ostream.
+    /// \param coordinate The ElevatedUTMLocation to output.
+    /// \returns the updated std::ostream reference.
+    friend std::ostream& operator << (std::ostream& os,
+                                      const ElevatedUTMLocation& coordinate);
+private:
+    struct
+    {
+        /// \brief The elevation in meters.
+        double _elevation;
+    };
+    
+};
+
+
+inline std::ostream& operator<<(std::ostream& os, const ElevatedUTMLocation& coordinate)
+{
+    os << coordinate.toString();
     return os;
 }
 
