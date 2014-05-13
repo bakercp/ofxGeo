@@ -189,7 +189,7 @@ UTMLocation Utils::toUTM(const Coordinate& coordinate)
 
     std::string zone = (zoneBuffer == 0) ? "" : std::string(zoneBuffer);
 
-    return UTMLocation(northing, easting, zone);
+    return UTMLocation(easting, northing, zone);
 }
 
 Coordinate Utils::toCoordinate(const UTMLocation& location)
@@ -209,7 +209,7 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
 
 ofVec2d Utils::toVec(const UTMLocation& location)
 {
-    return ofVec2f(location.getEasting(), location.getNorthing());
+    return ofVec2d(location.getEasting(), location.getNorthing());
 }
 
 

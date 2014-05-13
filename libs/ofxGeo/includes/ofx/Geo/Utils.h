@@ -28,18 +28,8 @@
 
 #include <string>
 #include <vector>
-#include "ofVec2f.h"
-#include "ofVec3f.h"
-
-
-/// \brief This is until we actually have ofVec2d.
-typedef ofVec2f ofVec2d;
-
-/// \brief This is until we actually have ofVec3d.
-typedef ofVec3f ofVec3d;
-
-/// \brief This is until we actually have ofVec4d.
-typedef ofVec4f ofVec4d;
+#include "ofVec2d.h"
+#include "ofVec3d.h"
 
 
 namespace ofx {
@@ -115,8 +105,8 @@ public:
     /// \returns the converted location.
     static ofVec2d toVec(const Coordinate& coordinate);
 
+    /// \brief The approximate radius of a spherical earth in kilometers.
     static const double EARTH_RADIUS_KM;
-        ///< \brief The approximate radius of a spherical earth in kilometers.
 
 };
 
