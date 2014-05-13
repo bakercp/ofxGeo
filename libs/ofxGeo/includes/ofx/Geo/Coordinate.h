@@ -45,6 +45,9 @@ public:
     /// \param longitude The longitude in degrees.
 	Coordinate(double latitude, double longitude);
 
+    /// \brief Destroy the Coordinate.
+    virtual ~Coordinate();
+
     /// \brief Get the latitude in degrees.
     /// \returns the latitude in degrees.
     double getLatitude() const;
@@ -69,6 +72,10 @@ public:
     /// \param longitude the longitude in degrees.
     void setLongitude(double longitude);
 
+    /// \brief Get coordinate as a string.
+    /// \returns the a comma separated latitude / longitude pair.
+    std::string toString() const;
+
     /// \brief Stream output.
     /// \param os the std::ostream.
     /// \param coordinate The Coordiante to output.
@@ -77,15 +84,70 @@ public:
                                       const Coordinate& coordinate);
 
 private:
-    double _latitude; ///< \brief the latitude in degrees.
-    double _longitude; ///< \brief the longitude in degrees.
+    struct
+    {
+        /// \brief The latitude in degrees.
+        double _latitude;
+
+        /// \brief The longitude in degrees.
+        double _longitude;
+    };
 
 };
 
 
 inline std::ostream& operator<<(std::ostream& os, const Coordinate& coordinate)
 {
-    os << coordinate.getLatitude() << ", " << coordinate.getLongitude();
+    os << coordinate.toString();
+    return os;
+}
+
+
+class ElevatedCoordinate: public Coordinate
+{
+public:
+    /// \brief Create a 0, 0, 0 ElevatedCoordinate.
+    ElevatedCoordinate();
+
+    /// \brief Create a Coordinate with given latitude and logitude.
+    /// \param latitude The latitude in degrees.
+    /// \param longitude The longitude in degrees.
+    ElevatedCoordinate(double latitude, double longitude, double elevation);
+
+    /// \brief Destroy the Coordinate.
+    virtual ~ElevatedCoordinate();
+
+    /// \brief Get the elevation in meters.
+    /// \returns the elevation in meters.
+    double getElevation() const;
+
+    /// \brief Set the elevation in meters.
+    /// \param latitude the elevation in meters.
+    void setElevation(double elevation);
+
+    /// \brief Get coordinate as a string.
+    /// \returns the a comma separated latitude, longitude, elevation.
+    std::string toString() const;
+
+    /// \brief Stream output.
+    /// \param os the std::ostream.
+    /// \param coordinate The ElevatedCoordiante to output.
+    /// \returns the updated std::ostream reference.
+    friend std::ostream& operator << (std::ostream& os,
+                                      const ElevatedCoordinate& coordinate);
+private:
+    struct
+    {
+        /// \brief The elevation in meters.
+        double _elevation;
+    };
+
+};
+
+
+inline std::ostream& operator<<(std::ostream& os, const ElevatedCoordinate& coordinate)
+{
+    os << coordinate.toString();
     return os;
 }
 

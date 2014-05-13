@@ -45,6 +45,11 @@ Coordinate::Coordinate(double latitude, double longitude):
 }
 
 
+Coordinate::~Coordinate()
+{
+}
+
+
 double Coordinate::getLatitude() const
 {
     return _latitude;
@@ -79,6 +84,55 @@ void Coordinate::setLongitude(double longitude)
 {
     _longitude = longitude;
 }
+
+
+std::string Coordinate::toString() const
+{
+    std::stringstream ss;
+    ss << getLatitude() << "," << getLongitude();
+    return ss.str();
+}
+
+
+ElevatedCoordinate::ElevatedCoordinate():
+    _elevation(0)
+{
+}
+
+
+ElevatedCoordinate::ElevatedCoordinate(double latitude,
+                                       double longitude,
+                                       double elevation):
+    Coordinate(latitude, longitude),
+    _elevation(elevation)
+{
+}
+
+
+ElevatedCoordinate::~ElevatedCoordinate()
+{
+}
+
+
+double ElevatedCoordinate::getElevation() const
+{
+    return _elevation;
+}
+
+
+void ElevatedCoordinate::setElevation(double elevation)
+{
+    _elevation = elevation;
+}
+
+
+std::string ElevatedCoordinate::toString() const
+{
+    std::stringstream ss;
+    ss << getLatitude() << "," << getLongitude() << "," << getElevation();
+    return ss.str();
+}
+
 
 
 } } // namespace ofx::Geo
