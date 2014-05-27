@@ -36,6 +36,14 @@ namespace Geo {
 
 
 const double Utils::EARTH_RADIUS_KM = 6371.01;
+const double Utils::MIN_LATITUDE_RADIANS = - M_PI_2;
+const double Utils::MAX_LATITUDE_RADIANS =   M_PI_2;
+const double Utils::MIN_LATITUDE_DEGREES = Utils::MIN_LATITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MAX_LATITUDE_DEGREES = Utils::MAX_LATITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MIN_LONGITUDE_RADIANS = - M_PI;;
+const double Utils::MAX_LONGITUDE_RADIANS =   M_PI;
+const double Utils::MIN_LONGITUDE_DEGREES = Utils::MIN_LONGITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MAX_LONGITUDE_DEGREES = Utils::MAX_LONGITUDE_RADIANS * RAD_TO_DEG;
 
 
 std::vector<Coordinate> Utils::decodeGeoPolyline(const std::string& encodedGeoPolyline)
@@ -204,6 +212,19 @@ Coordinate Utils::toCoordinate(const UTMLocation& location)
                  longitude);
 
     return Coordinate(latitude, longitude);
+}
+
+
+Coordinate Utils::randomCoordinate()
+{
+    return Coordinate(ofRandom(MIN_LATITUDE_DEGREES, MAX_LATITUDE_DEGREES),
+                      ofRandom(MIN_LONGITUDE_DEGREES, MAX_LONGITUDE_DEGREES));
+}
+
+
+UTMLocation Utils::randomUTMLocation()
+{
+    return toUTM(randomCoordinate());
 }
 
 

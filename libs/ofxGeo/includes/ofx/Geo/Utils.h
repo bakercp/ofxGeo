@@ -105,8 +105,27 @@ public:
     /// \returns the converted location.
     static ofVec2d toVec(const Coordinate& coordinate);
 
+    static Coordinate randomCoordinate();
+
+    static UTMLocation randomUTMLocation();
+
+//    static bool fromGeoJSON(const Json::Value& geoJSON,
+//                            std::vector<std::vector<Coordinate> >& polylines);
+//
     /// \brief The approximate radius of a spherical earth in kilometers.
+    ///
+    /// Is subject to notable error, particularly around the poles.
     static const double EARTH_RADIUS_KM;
+
+    static const double MIN_LATITUDE_RADIANS;
+    static const double MAX_LATITUDE_RADIANS;
+    static const double MIN_LATITUDE_DEGREES;
+    static const double MAX_LATITUDE_DEGREES;
+
+    static const double MIN_LONGITUDE_RADIANS;
+    static const double MAX_LONGITUDE_RADIANS;
+    static const double MIN_LONGITUDE_DEGREES;
+    static const double MAX_LONGITUDE_DEGREES;
 
 };
 
