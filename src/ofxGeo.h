@@ -23,6 +23,11 @@
 // =============================================================================
 
 
+#include "ofVec2d.h"
+#include "ofVec3d.h"
+#include "ofVec4d.h"
+#include "ofRectangled.h"
+
 #include "ofxSpatialHash.h"
 #include "ofx/Geo/Coordinate.h"
 #include "ofx/Geo/UTMLocation.h"
