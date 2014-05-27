@@ -5,9 +5,9 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>9A8651EE-01F9-48B4-AF3E-3EF8A7E88A7B</string>
+	<string>5A6ACF8F-C1C3-4D6D-BA20-D743F1CBE522</string>
 	<key>IDESourceControlProjectName</key>
-	<string>example_measurement</string>
+	<string>example_spatial_hash</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3A0B38DE-0FB7-401A-97D1-D67FFACDB544</key>
@@ -18,7 +18,7 @@
 		<string>ssh://github.com/bakercp/ofxSpatialHash.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>addons/ofxGeo/example_measurement/example_measurement.xcodeproj/project.xcworkspace</string>
+	<string>addons/ofxGeo/example_spatial_hash/example_spatial_hash.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3A0B38DE-0FB7-401A-97D1-D67FFACDB544</key>

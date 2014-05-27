@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4b14cedcc7195a4d1f8e28b4f9635a89 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */; };
+		08cd2256307b048a8152d1c6c07891f2 /* CoordinateBounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */; };
+		3e7d272bb14cf0cd21ab9bf5a7273d0b /* ofRectangled.cpp in Sources */ = {isa = PBXBuildFile; fileRef = f43c8904807c0f81956584efc57035e1 /* ofRectangled.cpp */; };
+		49fbbb743b8337e09f42eaff123dadaa /* UTMLocationBounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */; };
+		508d5ecda7faff379f58128a8a24d1e4 /* ofVec2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ff63913175ed4525ae4d309e584b0546 /* ofVec2d.cpp */; };
 		75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */; };
 		76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */; };
+		9d2002dcca863f80989626bd8bf7bf57 /* ofVec4d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ad30986094675c81abb2d2bbcc882e4e /* ofVec4d.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E45BE97B0E8CC7DD009D7055 /* AGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9710E8CC7DD009D7055 /* AGL.framework */; };
@@ -21,6 +25,7 @@
 		E45BE9830E8CC7DD009D7055 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE9790E8CC7DD009D7055 /* OpenGL.framework */; };
 		E45BE9840E8CC7DD009D7055 /* QuickTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
+		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
 		E4C2424710CC5A17004149E2 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424410CC5A17004149E2 /* AppKit.framework */; };
 		E4C2424810CC5A17004149E2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424510CC5A17004149E2 /* Cocoa.framework */; };
 		E4C2424910CC5A17004149E2 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4C2424610CC5A17004149E2 /* IOKit.framework */; };
@@ -62,13 +67,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		081fa8a6e82902e0559672e3ac9d2f87 /* ofRectangled.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofRectangled.h; path = ../../../addons/ofxGeo/src/ofRectangled.h; sourceTree = SOURCE_ROOT; };
+		0acf5c25f4063432218faaac6c600297 /* ofVec4d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofVec4d.h; path = ../../../addons/ofxGeo/src/ofVec4d.h; sourceTree = SOURCE_ROOT; };
+		3eb97c972cc87b8d4a58f3c27682a4fb /* ofVec3d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofVec3d.h; path = ../../../addons/ofxGeo/src/ofVec3d.h; sourceTree = SOURCE_ROOT; };
+		3fcc3cc63f1fb03fa5a6c417e8e9d111 /* KDTree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = KDTree.h; path = ../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include/ofx/KDTree.h; sourceTree = SOURCE_ROOT; };
 		46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Coordinate.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Coordinate.cpp; sourceTree = SOURCE_ROOT; };
 		4a7076ee8b12630deb46901f2d43776d /* Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Utils.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/Utils.h; sourceTree = SOURCE_ROOT; };
+		57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UTMLocationBounds.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/UTMLocationBounds.cpp; sourceTree = SOURCE_ROOT; };
 		604bb71b812e172ad8fa62c97ae01496 /* UTMLocation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UTMLocation.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/UTMLocation.cpp; sourceTree = SOURCE_ROOT; };
+		63972d14341aff0087caf89fe7c16ebf /* UTMLocationBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UTMLocationBounds.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/UTMLocationBounds.h; sourceTree = SOURCE_ROOT; };
 		6782f8ccbc167c8e048d4493a2853b93 /* UTM.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UTM.h; path = ../../../addons/ofxGeo/libs/UTM/includes/UTM/UTM.h; sourceTree = SOURCE_ROOT; };
-		84f6287fa54b66c746947875f6690182 /* ofApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CoordinateBounds.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/CoordinateBounds.cpp; sourceTree = SOURCE_ROOT; };
 		8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Utils.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Utils.cpp; sourceTree = SOURCE_ROOT; };
+		9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CoordinateBounds.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/CoordinateBounds.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E45BE9710E8CC7DD009D7055 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
@@ -81,6 +92,8 @@
 		E45BE97A0E8CC7DD009D7055 /* QuickTime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickTime.framework; path = /System/Library/Frameworks/QuickTime.framework; sourceTree = "<absolute>"; };
 		E4B69B5B0A3A1756003C02F2 /* example_measurementDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = example_measurementDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4C2424410CC5A17004149E2 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		E4C2424510CC5A17004149E2 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -90,9 +103,15 @@
 		E7E077E415D3B63C0020DFD4 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = /System/Library/Frameworks/CoreVideo.framework; sourceTree = "<absolute>"; };
 		E7E077E715D3B6510020DFD4 /* QTKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QTKit.framework; path = /System/Library/Frameworks/QTKit.framework; sourceTree = "<absolute>"; };
 		E7F985F515E0DE99003869B5 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
+		ad30986094675c81abb2d2bbcc882e4e /* ofVec4d.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofVec4d.cpp; path = ../../../addons/ofxGeo/src/ofVec4d.cpp; sourceTree = SOURCE_ROOT; };
+		b93e3253e66e6b282c408b7cf795b920 /* nanoflann.hpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = nanoflann.hpp; path = ../../../addons/ofxSpatialHash/libs/nanoflann/include/nanoflann.hpp; sourceTree = SOURCE_ROOT; };
 		ba5b8f4add9046d66ead0aa3ab7572d8 /* UTMLocation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UTMLocation.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/UTMLocation.h; sourceTree = SOURCE_ROOT; };
+		c7741f5222ea5255dd6710edf2a38c23 /* ofxSpatialHash.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxSpatialHash.h; path = ../../../addons/ofxSpatialHash/src/ofxSpatialHash.h; sourceTree = SOURCE_ROOT; };
+		d0a942c03e58219fb195a518b875aab7 /* ofVec2d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofVec2d.h; path = ../../../addons/ofxGeo/src/ofVec2d.h; sourceTree = SOURCE_ROOT; };
 		d26663999e7d6113c46b3110faaa2de6 /* ofxGeo.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxGeo.h; path = ../../../addons/ofxGeo/src/ofxGeo.h; sourceTree = SOURCE_ROOT; };
+		f43c8904807c0f81956584efc57035e1 /* ofRectangled.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofRectangled.cpp; path = ../../../addons/ofxGeo/src/ofRectangled.cpp; sourceTree = SOURCE_ROOT; };
 		f472785ffd33ad7a5a66869c441bbca8 /* Coordinate.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Coordinate.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/Coordinate.h; sourceTree = SOURCE_ROOT; };
+		ff63913175ed4525ae4d309e584b0546 /* ofVec2d.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofVec2d.cpp; path = ../../../addons/ofxGeo/src/ofVec2d.cpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +141,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0593f71a6c41bcbcd91d9c0c0522315b /* ofx */ = {
+			isa = PBXGroup;
+			children = (
+				3fcc3cc63f1fb03fa5a6c417e8e9d111 /* KDTree.h */,
+			);
+			name = ofx;
+			sourceTree = "<group>";
+		};
 		07675191e5cbbf4211173c08e0b0b64e /* ofxGeo */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,7 +170,22 @@
 		0f391434a4be149e83611ae6b072370d /* src */ = {
 			isa = PBXGroup;
 			children = (
+				f43c8904807c0f81956584efc57035e1 /* ofRectangled.cpp */,
+				081fa8a6e82902e0559672e3ac9d2f87 /* ofRectangled.h */,
+				ff63913175ed4525ae4d309e584b0546 /* ofVec2d.cpp */,
+				d0a942c03e58219fb195a518b875aab7 /* ofVec2d.h */,
+				3eb97c972cc87b8d4a58f3c27682a4fb /* ofVec3d.h */,
+				ad30986094675c81abb2d2bbcc882e4e /* ofVec4d.cpp */,
+				0acf5c25f4063432218faaac6c600297 /* ofVec4d.h */,
 				d26663999e7d6113c46b3110faaa2de6 /* ofxGeo.h */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		385a835b12a0021297521f5a554df0ae /* src */ = {
+			isa = PBXGroup;
+			children = (
+				c7741f5222ea5255dd6710edf2a38c23 /* ofxSpatialHash.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -164,12 +206,38 @@
 			name = includes;
 			sourceTree = "<group>";
 		};
+		6c9af35f1a9916752055a0f3b8655795 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				cf1d40b026e188cb81fa4f13bbf8c98f /* nanoflann */,
+				b40f26471d7470b269e6f4d6d06e6bcd /* ofxSpatialHash */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		6f8ab0a4b467add4afcb478ce89de376 /* ofxSpatialHash */ = {
+			isa = PBXGroup;
+			children = (
+				385a835b12a0021297521f5a554df0ae /* src */,
+				6c9af35f1a9916752055a0f3b8655795 /* libs */,
+			);
+			name = ofxSpatialHash;
+			sourceTree = "<group>";
+		};
 		732ff1f0f380095f0c84035fcf6660d2 /* UTM */ = {
 			isa = PBXGroup;
 			children = (
 				4491af5378192c5595d986104e06c58b /* includes */,
 			);
 			name = UTM;
+			sourceTree = "<group>";
+		};
+		7c1fbbca7cae2dfad0f111235e7e39e1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				b93e3253e66e6b282c408b7cf795b920 /* nanoflann.hpp */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 		916d885e62e86a4cf0a50712886cc5e9 /* ofxGeo */ = {
@@ -185,8 +253,10 @@
 			isa = PBXGroup;
 			children = (
 				f472785ffd33ad7a5a66869c441bbca8 /* Coordinate.h */,
+				9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */,
 				4a7076ee8b12630deb46901f2d43776d /* Utils.h */,
 				ba5b8f4add9046d66ead0aa3ab7572d8 /* UTMLocation.h */,
+				63972d14341aff0087caf89fe7c16ebf /* UTMLocationBounds.h */,
 			);
 			name = Geo;
 			sourceTree = "<group>";
@@ -195,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				07675191e5cbbf4211173c08e0b0b64e /* ofxGeo */,
+				6f8ab0a4b467add4afcb478ce89de376 /* ofxSpatialHash */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -262,8 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				19c22cd05d10f78b32ff80c6be3a9385 /* ofApp.cpp */,
-				84f6287fa54b66c746947875f6690182 /* ofApp.h */,
+				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
+				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -275,6 +346,14 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		b40f26471d7470b269e6f4d6d06e6bcd /* ofxSpatialHash */ = {
+			isa = PBXGroup;
+			children = (
+				e953f1f92651a00c0dc78c82ada60e0e /* include */,
+			);
+			name = ofxSpatialHash;
 			sourceTree = "<group>";
 		};
 		b9cec375df9a38e10d7d288eb5a420e4 /* UTM */ = {
@@ -289,10 +368,28 @@
 			isa = PBXGroup;
 			children = (
 				46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */,
+				699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */,
 				8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */,
 				604bb71b812e172ad8fa62c97ae01496 /* UTMLocation.cpp */,
+				57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		cf1d40b026e188cb81fa4f13bbf8c98f /* nanoflann */ = {
+			isa = PBXGroup;
+			children = (
+				7c1fbbca7cae2dfad0f111235e7e39e1 /* include */,
+			);
+			name = nanoflann;
+			sourceTree = "<group>";
+		};
+		e953f1f92651a00c0dc78c82ada60e0e /* include */ = {
+			isa = PBXGroup;
+			children = (
+				0593f71a6c41bcbcd91d9c0c0522315b /* ofx */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 		eaea3a1cbaa715919906657c22e30d7d /* ofx */ = {
@@ -391,10 +488,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
-				4b14cedcc7195a4d1f8e28b4f9635a89 /* ofApp.cpp in Sources */,
+				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				3e7d272bb14cf0cd21ab9bf5a7273d0b /* ofRectangled.cpp in Sources */,
+				508d5ecda7faff379f58128a8a24d1e4 /* ofVec2d.cpp in Sources */,
+				9d2002dcca863f80989626bd8bf7bf57 /* ofVec4d.cpp in Sources */,
 				75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */,
+				08cd2256307b048a8152d1c6c07891f2 /* CoordinateBounds.cpp in Sources */,
 				76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */,
 				f43c0efc1c2c6fa257b0be375dc91d9f /* UTMLocation.cpp in Sources */,
+				49fbbb743b8337e09f42eaff123dadaa /* UTMLocationBounds.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,7 +516,6 @@
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
-				CLANG_CXX_LIBRARY = "libstdc++";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
@@ -443,6 +544,14 @@
 					../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo,
 					../../../addons/ofxGeo/libs/ofxGeo/src,
 					../../../addons/ofxGeo/src,
+					../../../addons/ofxSpatialHash/libs,
+					../../../addons/ofxSpatialHash/libs/nanoflann,
+					../../../addons/ofxSpatialHash/libs/nanoflann/include,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include/ofx,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/src,
+					../../../addons/ofxSpatialHash/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -459,7 +568,6 @@
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH)";
-				CLANG_CXX_LIBRARY = "libstdc++";
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
 				COPY_PHASE_STRIP = YES;
 				DEAD_CODE_STRIPPING = YES;
@@ -489,6 +597,14 @@
 					../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo,
 					../../../addons/ofxGeo/libs/ofxGeo/src,
 					../../../addons/ofxGeo/src,
+					../../../addons/ofxSpatialHash/libs,
+					../../../addons/ofxSpatialHash/libs/nanoflann,
+					../../../addons/ofxSpatialHash/libs/nanoflann/include,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include/ofx,
+					../../../addons/ofxSpatialHash/libs/ofxSpatialHash/src,
+					../../../addons/ofxSpatialHash/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				OTHER_CPLUSPLUSFLAGS = (

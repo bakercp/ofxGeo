@@ -1,2 +1,4 @@
 ofxGeo
+ofxSatellite
 ofxSpatialHash
+ofxTime
