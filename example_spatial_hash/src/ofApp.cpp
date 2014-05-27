@@ -26,10 +26,48 @@
 #include "ofApp.h"
 
 
+ofApp::ofApp(): hash(locations)
+{
+}
+
+
 void ofApp::setup()
 {
-    
+    ofEnableAlphaBlending();
 
+    mesh.setMode(OF_PRIMITIVE_POINTS);
+
+
+    for (std::size_t i = 0; i < NUM; ++i)
+    {
+        ofx::Geo::UTMLocation location = ofx::Geo::Utils::randomUTMLocation();
+        locations.push_back(location);
+        mesh.addVertex(ofVec3f(location.x, location.y));
+
+        if (0 == i)
+        {
+            bounds = ofRectangled(location, 0, 0);
+        }
+        else
+        {
+            bounds.growToInclude(location);
+        }
+    }
+
+    hash.buildIndex();
+
+    std::cout << bounds.getMin() << " / " << bounds.getMax() << std::endl;
+
+}
+
+void ofApp::update()
+{
+    mouse = ofx::Geo::UTMLocation(ofGetMouseX(), ofGetMouseY(), "");
+
+    searchResults.clear();
+    searchResults.resize(NEAREST_N);
+
+    hash.findNClosestPoints(mouse, NEAREST_N, searchResults);
 
 }
 
@@ -37,4 +75,6 @@ void ofApp::setup()
 void ofApp::draw()
 {
     ofBackground(0);
+
+    mesh.draw();
 }

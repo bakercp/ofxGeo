@@ -30,14 +30,36 @@
 #include "ofxGeo.h"
 
 
-using namespace ofx;
-
-
 class ofApp: public ofBaseApp
 {
 public:
+    ofApp();
     void setup();
+    void update();
     void draw();
 
-    std::vector<Geo::Coordinate> coordinates;
+    // A collection of Random UTMCoordinates.
+    std::vector<ofx::Geo::UTMLocation> locations;
+
+    /// \brief The spatial hash specialized for ofx::Geo::UTMLocation.
+    ///
+    /// We must also specify the
+    ofx::KDTree<ofx::Geo::UTMLocation, double> hash;
+
+    /// \brief The search results specialized for ofx::Geo::UTMLocation.
+    ofx::KDTree<ofx::Geo::UTMLocation, double>::SearchResults searchResults;
+
+    /// \brief A mesh to make it easier to draw lots of points.
+    ofMesh mesh;
+
+    ofx::Geo::UTMLocation mouse;
+    
+    ofRectangled bounds;
+
+    enum
+    {
+        NUM = 1000,
+        NEAREST_N = 200
+    };
+
 };
