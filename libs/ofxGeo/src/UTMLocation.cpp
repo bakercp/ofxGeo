@@ -31,8 +31,7 @@ namespace Geo {
 
 
 UTMLocation::UTMLocation():
-    _easting(0),
-    _northing(0),
+    ofVec2d(0, 0),
     _zone("")
 {
 }
@@ -41,8 +40,7 @@ UTMLocation::UTMLocation():
 UTMLocation::UTMLocation(double easting,
                          double northing,
                          const std::string& zone):
-    _easting(easting),
-    _northing(northing),
+    ofVec2d(easting, northing),
     _zone(zone)
 {
 }
@@ -55,13 +53,13 @@ UTMLocation::~UTMLocation()
 
 double UTMLocation::getEasting() const
 {
-    return _easting;
+    return x;
 }
 
     
 double UTMLocation::getNorthing() const
 {
-    return _northing;
+    return y;
 }
 
 
@@ -73,13 +71,13 @@ const std::string& UTMLocation::getZone() const
 
 void UTMLocation::setEasting(double easting)
 {
-    _easting = easting;
+    x = easting;
 }
 
     
 void UTMLocation::setNorthing(double northing)
 {
-    _northing = northing;
+    y = northing;
 }
 
 
@@ -92,23 +90,24 @@ void UTMLocation::setZone(const std::string& zone)
 std::string UTMLocation::toString() const
 {
     std::stringstream ss;
-    ss << getEasting() << ", " << getNorthing() << ", " << getZone();
+    ss << *this << ", " << _zone;
     return ss.str();
 }
 
 
 ElevatedUTMLocation::ElevatedUTMLocation():
-    _elevation(0)
+    ofVec3d(0, 0, 0),
+    _zone("")
 {
 }
 
 
 ElevatedUTMLocation::ElevatedUTMLocation(double easting,
                                          double northing,
-                                         const std::string& zone,
-                                         double elevation):
-    UTMLocation(easting, northing, zone),
-    _elevation(elevation)
+                                         double elevation,
+                                         const std::string& zone):
+    ofVec3d(easting, northing, elevation),
+    _zone(zone)
 {
 }
 
@@ -118,16 +117,60 @@ ElevatedUTMLocation::~ElevatedUTMLocation()
 }
 
 
+double ElevatedUTMLocation::getEasting() const
+{
+    return x;
+}
+
+
+double ElevatedUTMLocation::getNorthing() const
+{
+    return y;
+}
+
+
 double ElevatedUTMLocation::getElevation() const
 {
-    return _elevation;
+    return z;
 }
+
+
+const std::string& ElevatedUTMLocation::getZone() const
+{
+    return _zone;
+}
+
+
+void ElevatedUTMLocation::setEasting(double easting)
+{
+    x = easting;
+}
+
+
+void ElevatedUTMLocation::setNorthing(double northing)
+{
+    y = northing;
+}
+
+
+void ElevatedUTMLocation::setElevation(double elevation)
+{
+    z = elevation;
+}
+
+
+void ElevatedUTMLocation::setZone(const std::string& zone)
+{
+    _zone = zone;
+}
+
+
 
 
 std::string ElevatedUTMLocation::toString() const
 {
     std::stringstream ss;
-    ss << getEasting() << ", " << getNorthing() << ", " << getZone() << ", " << getElevation();
+    ss << *this << ", " << _zone;
     return ss.str();
 }
 
