@@ -23,8 +23,40 @@
 // =============================================================================
 
 
-#include "ofxSpatialHash.h"
-#include "ofx/Geo/Coordinate.h"
+#pragma once
+
+
+#include <iostream>
 #include "ofx/Geo/UTMLocation.h"
-#include "ofx/Geo/Utils.h"
-#include "UTM/UTM.h"
+
+
+namespace ofx {
+namespace Geo {
+
+
+/// \brief A bounding box.
+class UTMLocationBounds
+{
+public:
+    UTMLocationBounds();
+
+    UTMLocationBounds(const UTMLocation& northwest, const UTMLocation& southeast);
+
+    virtual ~UTMLocationBounds();
+
+    const UTMLocation& getNorthwest() const;
+
+    void setNorthwest(const UTMLocation& northwest);
+
+    const UTMLocation& getSoutheast() const;
+
+    void setSoutheast(const UTMLocation& southeast);
+
+private:
+    UTMLocation _northwest;
+    UTMLocation _southeast;
+    
+};
+
+
+} } // namespace ofx::Geo

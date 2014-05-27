@@ -35,14 +35,14 @@ namespace Geo {
 
 
 /// \brief A bounding box.
-class Bounds
+class CoordinateBounds
 {
 public:
-    Bounds();
+    CoordinateBounds();
 
-    Bounds(const Coordinate& northwest, const Coordinate& southeast);
+    CoordinateBounds(const Coordinate& northwest, const Coordinate& southeast);
 
-    virtual ~Bounds();
+    virtual ~CoordinateBounds();
 
     const Coordinate& getNorthwest() const;
 

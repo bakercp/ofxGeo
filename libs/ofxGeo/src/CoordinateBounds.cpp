@@ -23,19 +23,20 @@
 // =============================================================================
 
 
-#include "ofx/Geo/Bounds.h"
+#include "ofx/Geo/CoordinateBounds.h"
 
 
 namespace ofx {
 namespace Geo {
 
 
-Bounds::Bounds()
+CoordinateBounds::CoordinateBounds()
 {
 }
 
 
-Bounds::Bounds(const Coordinate& northwest, const Coordinate& southeast):
+CoordinateBounds::CoordinateBounds(const Coordinate& northwest,
+                                   const Coordinate& southeast):
     _northwest(northwest),
     _southeast(southeast)
 
@@ -43,30 +44,30 @@ Bounds::Bounds(const Coordinate& northwest, const Coordinate& southeast):
 }
 
 
-Bounds::~Bounds()
+CoordinateBounds::~CoordinateBounds()
 {
 }
 
 
-const Coordinate& Bounds::getNorthwest() const
+const Coordinate& CoordinateBounds::getNorthwest() const
 {
     return _northwest;
 }
 
 
-void Bounds::setNorthwest(const Coordinate& northwest)
+void CoordinateBounds::setNorthwest(const Coordinate& northwest)
 {
     _northwest = northwest;
 }
 
 
-const Coordinate& Bounds::getSoutheast() const
+const Coordinate& CoordinateBounds::getSoutheast() const
 {
     return _southeast;
 }
 
 
-void Bounds::setSoutheast(const Coordinate& southeast)
+void CoordinateBounds::setSoutheast(const Coordinate& southeast)
 {
     _southeast = southeast;
 }

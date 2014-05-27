@@ -112,6 +112,7 @@ public:
     /// \brief Create a Coordinate with given latitude and logitude.
     /// \param latitude The latitude in degrees.
     /// \param longitude The longitude in degrees.
+    /// \param longitude The elevation in meters.
     ElevatedCoordinate(double latitude, double longitude, double elevation);
 
     /// \brief Destroy the Coordinate.
