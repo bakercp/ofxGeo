@@ -94,9 +94,9 @@ private:
 };
 
 
-inline std::ostream& operator<<(std::ostream& os, const UTMLocation& location)
+inline std::ostream& operator << (std::ostream& os, const UTMLocation& location)
 {
-    os << location.toString();
+    os << location.x << ", " << location.y << ", " << location._zone;
     return os;
 }
 
@@ -166,9 +166,9 @@ private:
 };
 
 
-inline std::ostream& operator<<(std::ostream& os, const ElevatedUTMLocation& coordinate)
+inline std::ostream& operator << (std::ostream& os, const ElevatedUTMLocation& coordinate)
 {
-    os << coordinate.toString();
+    os << coordinate.x << ", " << coordinate.y << "," << coordinate.z << ", " << coordinate._zone;
     return os;
 }
 

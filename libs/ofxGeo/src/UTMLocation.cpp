@@ -90,7 +90,7 @@ void UTMLocation::setZone(const std::string& zone)
 std::string UTMLocation::toString() const
 {
     std::stringstream ss;
-    ss << *this << ", " << _zone;
+    ss << x << ", " << y << ", " << _zone;
     return ss.str();
 }
 
@@ -170,7 +170,7 @@ void ElevatedUTMLocation::setZone(const std::string& zone)
 std::string ElevatedUTMLocation::toString() const
 {
     std::stringstream ss;
-    ss << *this << ", " << _zone;
+    ss << x << ", " << y << "," << z << ", " << _zone;
     return ss.str();
 }
 
