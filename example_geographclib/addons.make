@@ -1,0 +1,2 @@
+ofxGeo
+ofxSpatialHash
