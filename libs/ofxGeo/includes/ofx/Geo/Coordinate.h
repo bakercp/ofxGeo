@@ -33,7 +33,7 @@ namespace ofx {
 namespace Geo {
 
 
-/// \brief A Location defines a latitude / longitude pair in degrees.
+/// \brief A Coordinate defines a latitude / longitude pair in degrees.
 class Coordinate
 {
 public:
@@ -47,6 +47,11 @@ public:
 
     /// \brief Destroy the Coordinate.
     virtual ~Coordinate();
+
+    /// \brief Set the latitude and longitude.
+    /// \param latitude The latitude in degrees.
+    /// \param longitude The longitude in degrees.
+    void set(double latitude, double longitude);
 
     /// \brief Get the latitude in degrees.
     /// \returns the latitude in degrees.
@@ -109,14 +114,20 @@ public:
     /// \brief Create a 0, 0, 0 ElevatedCoordinate.
     ElevatedCoordinate();
 
-    /// \brief Create a Coordinate with given latitude and logitude.
+    /// \brief Create a Coordinate with given latitude, logitude and elevation.
     /// \param latitude The latitude in degrees.
     /// \param longitude The longitude in degrees.
-    /// \param longitude The elevation in meters.
+    /// \param elevation The elevation in meters.
     ElevatedCoordinate(double latitude, double longitude, double elevation);
 
     /// \brief Destroy the Coordinate.
     virtual ~ElevatedCoordinate();
+
+    /// \brief Set  latitude, logitude and elevation.
+    /// \param latitude The latitude in degrees.
+    /// \param longitude The longitude in degrees.
+    /// \param elevation The elevation in meters.
+    void set(double latitude, double longitude, double elevation);
 
     /// \brief Get the elevation in meters.
     /// \returns the elevation in meters.

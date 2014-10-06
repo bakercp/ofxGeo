@@ -31,5 +31,5 @@
 #include "ofxSpatialHash.h"
 #include "ofx/Geo/Coordinate.h"
 #include "ofx/Geo/UTMLocation.h"
-#include "ofx/Geo/Utils.h"
+#include "ofx/Geo/GeoUtils.h"
 #include "UTM/UTM.h"

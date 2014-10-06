@@ -41,7 +41,7 @@ class UTMLocation;
 
 
 /// \brief A collection of utilities for geographic tasks.
-class Utils
+class GeoUtils
 {
 public:
     /// \brief Convert a string-encoded polyline into a vector of coodinates.

@@ -50,6 +50,13 @@ Coordinate::~Coordinate()
 }
 
 
+void Coordinate::set(double latitude, double longitude)
+{
+    _latitude = latitude;
+    _longitude = longitude;
+}
+
+
 double Coordinate::getLatitude() const
 {
     return _latitude;
@@ -111,6 +118,15 @@ ElevatedCoordinate::ElevatedCoordinate(double latitude,
 
 ElevatedCoordinate::~ElevatedCoordinate()
 {
+}
+
+
+void ElevatedCoordinate::set(double latitude,
+                             double longitude,
+                             double elevation)
+{
+    Coordinate::set(latitude, longitude);
+    _elevation = elevation;
 }
 
 
