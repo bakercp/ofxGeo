@@ -12,7 +12,7 @@
 		49fbbb743b8337e09f42eaff123dadaa /* UTMLocationBounds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */; };
 		508d5ecda7faff379f58128a8a24d1e4 /* ofVec2d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ff63913175ed4525ae4d309e584b0546 /* ofVec2d.cpp */; };
 		75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */; };
-		76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */; };
+		76efc0b4cd58c2a247731b074f349415 /* GeoUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */; };
 		9d2002dcca863f80989626bd8bf7bf57 /* ofVec4d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ad30986094675c81abb2d2bbcc882e4e /* ofVec4d.cpp */; };
 		BBAB23CB13894F3D00AA2426 /* GLUT.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = BBAB23BE13894E4700AA2426 /* GLUT.framework */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -72,13 +72,13 @@
 		3eb97c972cc87b8d4a58f3c27682a4fb /* ofVec3d.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofVec3d.h; path = ../../../addons/ofxGeo/src/ofVec3d.h; sourceTree = SOURCE_ROOT; };
 		3fcc3cc63f1fb03fa5a6c417e8e9d111 /* KDTree.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = KDTree.h; path = ../../../addons/ofxSpatialHash/libs/ofxSpatialHash/include/ofx/KDTree.h; sourceTree = SOURCE_ROOT; };
 		46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Coordinate.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Coordinate.cpp; sourceTree = SOURCE_ROOT; };
-		4a7076ee8b12630deb46901f2d43776d /* Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Utils.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/Utils.h; sourceTree = SOURCE_ROOT; };
+		4a7076ee8b12630deb46901f2d43776d /* GeoUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GeoUtils.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/GeoUtils.h; sourceTree = SOURCE_ROOT; };
 		57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UTMLocationBounds.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/UTMLocationBounds.cpp; sourceTree = SOURCE_ROOT; };
 		604bb71b812e172ad8fa62c97ae01496 /* UTMLocation.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UTMLocation.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/UTMLocation.cpp; sourceTree = SOURCE_ROOT; };
 		63972d14341aff0087caf89fe7c16ebf /* UTMLocationBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UTMLocationBounds.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/UTMLocationBounds.h; sourceTree = SOURCE_ROOT; };
 		6782f8ccbc167c8e048d4493a2853b93 /* UTM.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = UTM.h; path = ../../../addons/ofxGeo/libs/UTM/includes/UTM/UTM.h; sourceTree = SOURCE_ROOT; };
 		699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = CoordinateBounds.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/CoordinateBounds.cpp; sourceTree = SOURCE_ROOT; };
-		8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Utils.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Utils.cpp; sourceTree = SOURCE_ROOT; };
+		8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GeoUtils.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/GeoUtils.cpp; sourceTree = SOURCE_ROOT; };
 		9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CoordinateBounds.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/CoordinateBounds.h; sourceTree = SOURCE_ROOT; };
 		BBAB23BE13894E4700AA2426 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = ../../../libs/glut/lib/osx/GLUT.framework; sourceTree = "<group>"; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -254,7 +254,7 @@
 			children = (
 				f472785ffd33ad7a5a66869c441bbca8 /* Coordinate.h */,
 				9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */,
-				4a7076ee8b12630deb46901f2d43776d /* Utils.h */,
+				4a7076ee8b12630deb46901f2d43776d /* GeoUtils.h */,
 				ba5b8f4add9046d66ead0aa3ab7572d8 /* UTMLocation.h */,
 				63972d14341aff0087caf89fe7c16ebf /* UTMLocationBounds.h */,
 			);
@@ -369,7 +369,7 @@
 			children = (
 				46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */,
 				699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */,
-				8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */,
+				8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */,
 				604bb71b812e172ad8fa62c97ae01496 /* UTMLocation.cpp */,
 				57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */,
 			);
@@ -494,7 +494,7 @@
 				9d2002dcca863f80989626bd8bf7bf57 /* ofVec4d.cpp in Sources */,
 				75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */,
 				08cd2256307b048a8152d1c6c07891f2 /* CoordinateBounds.cpp in Sources */,
-				76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */,
+				76efc0b4cd58c2a247731b074f349415 /* GeoUtils.cpp in Sources */,
 				f43c0efc1c2c6fa257b0be375dc91d9f /* UTMLocation.cpp in Sources */,
 				49fbbb743b8337e09f42eaff123dadaa /* UTMLocationBounds.cpp in Sources */,
 			);

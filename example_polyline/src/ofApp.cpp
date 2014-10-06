@@ -30,7 +30,7 @@ void ofApp::setup()
 {
     encodedPolyline = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
     
-    polyline = Geo::Utils::decodeGeoPolyline(encodedPolyline);
+    polyline = Geo::GeoUtils::decodeGeoPolyline(encodedPolyline);
 }
 
 

@@ -36,7 +36,7 @@ void ofApp::setup()
     colorMap.loadImage("color_map_1024.jpg");
 
 
-    earthSphere.set(Geo::Utils::EARTH_RADIUS_KM, 24);
+    earthSphere.set(Geo::GeoUtils::EARTH_RADIUS_KM, 24);
 
     ofQuaternion quat;
     quat.makeRotate(180, 0, 1, 0);
@@ -47,7 +47,7 @@ void ofApp::setup()
                              colorMap.getTextureReference().getTextureData().tex_t,
                              0);
 
-    scaler = 300 / Geo::Utils::EARTH_RADIUS_KM;
+    scaler = 300 / Geo::GeoUtils::EARTH_RADIUS_KM;
 
 	ofSetFrameRate(30);
 	ofEnableAlphaBlending();
@@ -84,7 +84,7 @@ void ofApp::draw()
     //		spinQuat.makeRotate(ofGetFrameNum()/100, 0, 1, 0);
 
     //our starting point is 0,0, on the surface of our sphere, this is where the meridian and equator meet
-    ofVec3f center = ofVec3f(0,0, pos.getElevation() / 1000 + Geo::Utils::EARTH_RADIUS_KM);
+    ofVec3f center = ofVec3f(0,0, pos.getElevation() / 1000 + Geo::GeoUtils::EARTH_RADIUS_KM);
     //multiplying a quat with another quat combines their rotations into one quat
     //multiplying a quat to a vector applies the quat's rotation to that vector
     //so to to generate our point on the sphere, multiply all of our quaternions together then multiple the centery by the combined rotation

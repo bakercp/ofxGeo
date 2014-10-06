@@ -10,30 +10,42 @@
 	<string>example_polyline</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
+		<string>github.com:bakercp/openFrameworks.git</string>
 		<key>3A0B38DE-0FB7-401A-97D1-D67FFACDB544</key>
 		<string>ssh://github.com/bakercp/ofxGeo.git</string>
+		<key>7ED0D15754D9EE08B829B967643A20055B98F6F4</key>
+		<string>github.com:bakercp/ofxGeo.git</string>
 		<key>87BC136C-196B-41C5-9A7F-2853DADC4C31</key>
 		<string>ssh://github.com/bakercp/openFrameworks.git</string>
+		<key>92CBB09FB1FEF12B475B64CE56E8995C1DE44643</key>
+		<string>github.com:bakercp/ofxSpatialHash.git</string>
 		<key>E7247F3A-BD58-4D1B-892C-6C84C0112852</key>
 		<string>ssh://github.com/bakercp/ofxSpatialHash.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>addons/ofxGeo/example_polyline/example_polyline.xcodeproj/project.xcworkspace</string>
+	<string>example_polyline/example_polyline.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</key>
+		<string>../../../../..</string>
 		<key>3A0B38DE-0FB7-401A-97D1-D67FFACDB544</key>
+		<string>../../../../../../..</string>
+		<key>7ED0D15754D9EE08B829B967643A20055B98F6F4</key>
 		<string>../../..</string>
 		<key>87BC136C-196B-41C5-9A7F-2853DADC4C31</key>
-		<string>../../../../..</string>
-		<key>E7247F3A-BD58-4D1B-892C-6C84C0112852</key>
+		<string>../../../../openFrameworks</string>
+		<key>92CBB09FB1FEF12B475B64CE56E8995C1DE44643</key>
 		<string>../../../../ofxSpatialHash</string>
+		<key>E7247F3A-BD58-4D1B-892C-6C84C0112852</key>
+		<string>../../../../../../../../ofxSpatialHash</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/bakercp/ofxGeo.git</string>
+	<string>github.com:bakercp/ofxGeo.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>87BC136C-196B-41C5-9A7F-2853DADC4C31</string>
+	<string>7ED0D15754D9EE08B829B967643A20055B98F6F4</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -42,6 +54,22 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3A0B38DE-0FB7-401A-97D1-D67FFACDB544</string>
 			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2DE9C8846D9375EAACFABA8963120E8E7719BAF5</string>
+			<key>IDESourceControlWCCName</key>
+			<string>..</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>7ED0D15754D9EE08B829B967643A20055B98F6F4</string>
+			<key>IDESourceControlWCCName</key>
 			<string>ofxGeo</string>
 		</dict>
 		<dict>
@@ -49,6 +77,14 @@
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>E7247F3A-BD58-4D1B-892C-6C84C0112852</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxSpatialHash</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>92CBB09FB1FEF12B475B64CE56E8995C1DE44643</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxSpatialHash</string>
 		</dict>

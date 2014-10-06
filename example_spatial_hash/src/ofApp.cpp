@@ -40,7 +40,7 @@ void ofApp::setup()
 
     for (std::size_t i = 0; i < NUM; ++i)
     {
-        ofx::Geo::UTMLocation location = ofx::Geo::Utils::randomUTMLocation();
+        ofx::Geo::UTMLocation location = ofx::Geo::GeoUtils::randomUTMLocation();
         locations.push_back(location);
         mesh.addVertex(ofVec3f(location.x, location.y));
 

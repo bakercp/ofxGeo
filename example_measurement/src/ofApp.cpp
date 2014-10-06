@@ -31,10 +31,10 @@ void ofApp::setup()
     london = Geo::Coordinate(51.5085300, -0.1257400);
     tokyo = Geo::Coordinate(35.6148800, 139.5813000);
 
-    distanceSpherical = Geo::Utils::distanceSpherical(london, tokyo);
-    distanceHaversine = Geo::Utils::distanceHaversine(london, tokyo);
-    bearingHaversine = Geo::Utils::bearingHaversine(london, tokyo);
-    midpoint = Geo::Utils::midpoint(london, tokyo);
+    distanceSpherical = Geo::GeoUtils::distanceSpherical(london, tokyo);
+    distanceHaversine = Geo::GeoUtils::distanceHaversine(london, tokyo);
+    bearingHaversine = Geo::GeoUtils::bearingHaversine(london, tokyo);
+    midpoint = Geo::GeoUtils::midpoint(london, tokyo);
 }
 
 
@@ -44,8 +44,8 @@ void ofApp::draw()
 
     std::stringstream ss;
 
-    ss << "From: London (" << london << "), UTM [" << Geo::Utils::toUTM(london) << "]" << std::endl;
-    ss << "  To: Tokyo  (" << tokyo  << "), UTM [" << Geo::Utils::toUTM(tokyo)  << "]" << std::endl;
+    ss << "From: London (" << london << "), UTM [" << Geo::GeoUtils::toUTM(london) << "]" << std::endl;
+    ss << "  To: Tokyo  (" << tokyo  << "), UTM [" << Geo::GeoUtils::toUTM(tokyo)  << "]" << std::endl;
     ss << "    Distance Spherical: " << distanceSpherical << " km" << std::endl;
     ss << "    Distance Haversine: " << distanceHaversine << " km" << std::endl;
     ss << "     Bearing Haversine: " << bearingHaversine << " degrees" << std::endl;

@@ -22,7 +22,7 @@
 		5847aa7c8b6171d9fe1cc8d585df1b90 /* Period.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ae9c89f270782b85763a355476f8c8e6 /* Period.cpp */; };
 		651de076cc112b6101e5c2bce436b639 /* Satellite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3becb5a155f6baa3bea761df48071c1f /* Satellite.cpp */; };
 		75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */; };
-		76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */; };
+		76efc0b4cd58c2a247731b074f349415 /* GeoUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */; };
 		7701602118c70c10291e49c88e0fa855 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2f615cee50f03c98ee5f099953ec3fca /* Utils.cpp */; };
 		8285a7f277ac7d2038387981930667e2 /* OrbitalElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 66b0e95189d928bb08b77e74a613b782 /* OrbitalElements.cpp */; };
 		8919dbc6e0dcfc437dcffb905cafc401 /* DateTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = e0ebad6cf2af6ad79be06442040ab860 /* DateTime.cpp */; };
@@ -106,7 +106,7 @@
 		46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Coordinate.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Coordinate.cpp; sourceTree = SOURCE_ROOT; };
 		491e46e314ae2929a0fa5fe2f3202292 /* Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Utils.h; path = ../../../addons/ofxTime/libs/ofxTime/include/ofx/Time/Utils.h; sourceTree = SOURCE_ROOT; };
 		4a2aec0a46e5294df372c40c89ad7d93 /* Tle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Tle.cpp; path = ../../../addons/ofxSatellite/libs/libsgp4/Tle.cpp; sourceTree = SOURCE_ROOT; };
-		4a7076ee8b12630deb46901f2d43776d /* Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Utils.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/Utils.h; sourceTree = SOURCE_ROOT; };
+		4a7076ee8b12630deb46901f2d43776d /* GeoUtils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = GeoUtils.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/GeoUtils.h; sourceTree = SOURCE_ROOT; };
 		4cb37f6b6ba03e50196a5e192ac94b5f /* Utils.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Utils.h; path = ../../../addons/ofxSatellite/libs/ofxSatellite/includes/ofx/Satellite/Utils.h; sourceTree = SOURCE_ROOT; };
 		57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UTMLocationBounds.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/UTMLocationBounds.cpp; sourceTree = SOURCE_ROOT; };
 		5eba84663ef1276a176a39d69ee2802d /* Tle.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = Tle.h; path = ../../../addons/ofxSatellite/libs/libsgp4/Tle.h; sourceTree = SOURCE_ROOT; };
@@ -120,7 +120,7 @@
 		7d6bd8be655da4a729dd8ef58cb572cb /* DecayedException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = DecayedException.h; path = ../../../addons/ofxSatellite/libs/libsgp4/DecayedException.h; sourceTree = SOURCE_ROOT; };
 		84f6287fa54b66c746947875f6690182 /* ofApp.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		89474d2ea08f16fbc6ae438b7a0da619 /* Observer.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Observer.cpp; path = ../../../addons/ofxSatellite/libs/libsgp4/Observer.cpp; sourceTree = SOURCE_ROOT; };
-		8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Utils.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/Utils.cpp; sourceTree = SOURCE_ROOT; };
+		8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = GeoUtils.cpp; path = ../../../addons/ofxGeo/libs/ofxGeo/src/GeoUtils.cpp; sourceTree = SOURCE_ROOT; };
 		8f3df41cc44878753f29bde5bf5d1167 /* Interval.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = Interval.cpp; path = ../../../addons/ofxTime/libs/ofxTime/src/Interval.cpp; sourceTree = SOURCE_ROOT; };
 		910a940620fcfdf8e5204e2dc6f41640 /* TleException.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = TleException.h; path = ../../../addons/ofxSatellite/libs/libsgp4/TleException.h; sourceTree = SOURCE_ROOT; };
 		9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = CoordinateBounds.h; path = ../../../addons/ofxGeo/libs/ofxGeo/includes/ofx/Geo/CoordinateBounds.h; sourceTree = SOURCE_ROOT; };
@@ -417,7 +417,7 @@
 			children = (
 				f472785ffd33ad7a5a66869c441bbca8 /* Coordinate.h */,
 				9a68ac2707e7e74677fbc56a31b2804b /* CoordinateBounds.h */,
-				4a7076ee8b12630deb46901f2d43776d /* Utils.h */,
+				4a7076ee8b12630deb46901f2d43776d /* GeoUtils.h */,
 				ba5b8f4add9046d66ead0aa3ab7572d8 /* UTMLocation.h */,
 				63972d14341aff0087caf89fe7c16ebf /* UTMLocationBounds.h */,
 			);
@@ -534,7 +534,7 @@
 			children = (
 				46170c7ad3127d015f025a0365f06235 /* Coordinate.cpp */,
 				699d60a62bcfd7b740ff0b62a648a2eb /* CoordinateBounds.cpp */,
-				8cd80811b2f6fea24395fb70e5754e83 /* Utils.cpp */,
+				8cd80811b2f6fea24395fb70e5754e83 /* GeoUtils.cpp */,
 				604bb71b812e172ad8fa62c97ae01496 /* UTMLocation.cpp */,
 				57ac19537d7e9dc0b7f69f9708140359 /* UTMLocationBounds.cpp */,
 			);
@@ -730,7 +730,7 @@
 				9d2002dcca863f80989626bd8bf7bf57 /* ofVec4d.cpp in Sources */,
 				75680dd78047c04373769c5b8d8aaa52 /* Coordinate.cpp in Sources */,
 				08cd2256307b048a8152d1c6c07891f2 /* CoordinateBounds.cpp in Sources */,
-				76efc0b4cd58c2a247731b074f349415 /* Utils.cpp in Sources */,
+				76efc0b4cd58c2a247731b074f349415 /* GeoUtils.cpp in Sources */,
 				f43c0efc1c2c6fa257b0be375dc91d9f /* UTMLocation.cpp in Sources */,
 				49fbbb743b8337e09f42eaff123dadaa /* UTMLocationBounds.cpp in Sources */,
 				21d5b299e31341b5d655ea6ef6025b86 /* CoordGeodetic.cpp in Sources */,
