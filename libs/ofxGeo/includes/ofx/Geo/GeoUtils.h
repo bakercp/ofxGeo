@@ -121,17 +121,33 @@ public:
 
     /// \brief The approximate radius of a spherical earth in kilometers.
     ///
+    /// The value is 6371.01.
+    ///
     /// Is subject to notable error, particularly around the poles.
     static const double EARTH_RADIUS_KM;
 
+    /// \brief The minimum value for a latitude, - 2 * PI.
     static const double MIN_LATITUDE_RADIANS;
+
+    /// \brief The maximum value for a latitude, + 2 * PI.
     static const double MAX_LATITUDE_RADIANS;
+
+    /// \brief The minimum value for a latitude, - 360 degrees.
     static const double MIN_LATITUDE_DEGREES;
+
+    /// \brief The maximum value for a latitude, + 360 degrees.
     static const double MAX_LATITUDE_DEGREES;
 
+    /// \brief The minimum value for a longitude, - PI.
     static const double MIN_LONGITUDE_RADIANS;
+
+    /// \brief The maximum value for a longitude, + PI.
     static const double MAX_LONGITUDE_RADIANS;
+
+    /// \brief The minimum value for a longitude, - 180 degrees.
     static const double MIN_LONGITUDE_DEGREES;
+
+    /// \brief The maximum value for a longitude, + 180 degrees.
     static const double MAX_LONGITUDE_DEGREES;
 
 };
