@@ -41,7 +41,7 @@ public:
     /// \brief Create an empty CooridinateBounds.
     CoordinateBounds();
 
-    /// \brief Create coordinate from two Coordinates.
+    /// \brief Create CoordinateBounds from two Coordinates.
     /// \param northwest The northwest coordinate of the CoordinateBounds.
     /// \param southeast The southeast coordinate of the CoordinateBounds.
     CoordinateBounds(const Coordinate& northwest, const Coordinate& southeast);
