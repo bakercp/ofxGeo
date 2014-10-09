@@ -105,13 +105,20 @@ public:
     /// \returns the converted location.
     static ofVec2d toVec(const Coordinate& coordinate);
 
+    /// \brief Generate a random Coordiante.
+    /// \returns A Coordiante with
+    ///     MIN_LATITUDE_DEGREES <= latitude < MAX_LATITUDE_DEGREES and
+    ///     MIN_LONGITUDE_DEGREES <= longitude < MAX_LONGITUDE_DEGREES
+    /// \warning Internally this method uses ofRandom() which is not threadsafe.
     static Coordinate randomCoordinate();
 
+    /// \brief Generate a random UTMLocation.
+    /// \returns A UTMLocation corresponding to a Coordinate with
+    ///     MIN_LATITUDE_DEGREES <= latitude < MAX_LATITUDE_DEGREES and
+    ///     MIN_LONGITUDE_DEGREES <= longitude < MAX_LONGITUDE_DEGREES
+    /// \warning Internally this method uses ofRandom() which is not threadsafe.
     static UTMLocation randomUTMLocation();
 
-//    static bool fromGeoJSON(const Json::Value& geoJSON,
-//                            std::vector<std::vector<Coordinate> >& polylines);
-//
     /// \brief The approximate radius of a spherical earth in kilometers.
     ///
     /// Is subject to notable error, particularly around the poles.
