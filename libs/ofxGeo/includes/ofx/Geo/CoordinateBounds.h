@@ -34,26 +34,42 @@ namespace ofx {
 namespace Geo {
 
 
-/// \brief A bounding box.
+/// \brief A bounding box using Geo Coordinates.
 class CoordinateBounds
 {
 public:
+    /// \brief Create an empty CooridinateBounds.
     CoordinateBounds();
 
+    /// \brief Create coordinate from two Coordinates.
+    /// \param northwest The northwest coordinate of the CoordinateBounds.
+    /// \param southeast The southeast coordinate of the CoordinateBounds.
     CoordinateBounds(const Coordinate& northwest, const Coordinate& southeast);
 
+    /// \brief Destroy the CooridinateBounds.
     virtual ~CoordinateBounds();
 
+    /// \brief Get the northwest corner of the CooridinateBounds.
+    /// \returns the northwest corner of the CooridinateBounds.
     const Coordinate& getNorthwest() const;
 
+    /// \brief Set the northwest corner of the CooridinateBounds.
+    /// \param northwest The northwest corner of the CooridinateBounds.
     void setNorthwest(const Coordinate& northwest);
 
+    /// \brief Get the southeast corner of the CooridinateBounds.
+    /// \returns the southeast corner of the CooridinateBounds.
     const Coordinate& getSoutheast() const;
 
+    /// \brief Set the southeast corner of the CooridinateBounds.
+    /// \param northwest The southeast corner of the CooridinateBounds.
     void setSoutheast(const Coordinate& southeast);
 
 private:
+    /// \brief the northwest corner of the CoordinateBounds.
     Coordinate _northwest;
+
+    /// \brief the southeast corner of the CoordinateBounds.
     Coordinate _southeast;
     
 };
