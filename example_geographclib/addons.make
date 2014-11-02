@@ -1,3 +1,2 @@
 ofxGeo
-addons
 ofxSpatialHash
