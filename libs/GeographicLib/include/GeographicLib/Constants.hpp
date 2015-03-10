@@ -34,22 +34,23 @@
  * A compile-time assert.  Use C++11 static_assert, if available.
  **********************************************************************/
 #if !defined(GEOGRAPHICLIB_STATIC_ASSERT)
-#  if __cplusplus >= 201103
-#    define GEOGRAPHICLIB_STATIC_ASSERT static_assert
-#  elif defined(__GXX_EXPERIMENTAL_CXX0X__)
+#  if __cplusplus >= 201103 || defined(__GXX_EXPERIMENTAL_CXX0X__)
 #    define GEOGRAPHICLIB_STATIC_ASSERT static_assert
 #  elif defined(_MSC_VER) && _MSC_VER >= 1600
 // For reference, here is a table of Visual Studio and _MSC_VER
 // correspondences:
 //
 // _MSC_VER  Visual Studio
+//   1100     vc5
+//   1200     vc6
 //   1300     vc7
-//   1311     vc7.1 (2003)
+//   1310     vc7.1 (2003)
 //   1400     vc8   (2005)
 //   1500     vc9   (2008)
 //   1600     vc10  (2010)
 //   1700     vc11  (2012)
 //   1800     vc12  (2013)
+//   1900     vc14  (2015)
 #    define GEOGRAPHICLIB_STATIC_ASSERT static_assert
 #  else
 #    define GEOGRAPHICLIB_STATIC_ASSERT(cond,reason) \

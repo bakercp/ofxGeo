@@ -7,7 +7,7 @@
  * http://geographiclib.sourceforge.net/
  *
  * The relevant section of Lee's paper is part V, pp 67--101,
- * <a href="http://dx.doi.org/10.3138/X687-1574-4325-WM62">Conformal
+ * <a href="https://dx.doi.org/10.3138/X687-1574-4325-WM62">Conformal
  * Projections Based On Jacobian Elliptic Functions</a>.
  *
  * The method entails using the Thompson Transverse Mercator as an
@@ -93,7 +93,8 @@ namespace GeographicLib {
 
   Math::real TransverseMercatorExact::taupinv(real taup) const {
     real
-      // See comment in TransverseMercator.cpp about the initial guess
+      // See comment in implementation of TransverseMercator::tauf about the
+      // initial guess
       tau = taup/_mv,
       stol = tol_ * max(real(1), abs(taup));
     // min iterations = 1, max iterations = 2; mean = 1.94
