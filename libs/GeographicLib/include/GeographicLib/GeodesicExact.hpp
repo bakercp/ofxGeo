@@ -2,7 +2,7 @@
  * \file GeodesicExact.hpp
  * \brief Header for GeographicLib::GeodesicExact class
  *
- * Copyright (c) Charles Karney (2012-2014) <charles@karney.com> and licensed
+ * Copyright (c) Charles Karney (2012-2015) <charles@karney.com> and licensed
  * under the MIT/X11 License.  For more information, see
  * http://geographiclib.sourceforge.net/
  **********************************************************************/
@@ -97,28 +97,10 @@ namespace GeographicLib {
       CAP_ALL  = 0x1FU,
       CAP_MASK = CAP_ALL,
       OUT_ALL  = 0x7F80U,
-      OUT_MASK = 0xFF80U,       // Includes LONG_NOWRAP
+      OUT_MASK = 0xFF80U,       // Includes LONG_UNROLL
     };
 
     static real CosSeries(real sinx, real cosx, const real c[], int n);
-    static inline real AngRound(real x) {
-      // The makes the smallest gap in x = 1/16 - nextafter(1/16, 0) = 1/2^57
-      // for reals = 0.7 pm on the earth if x is an angle in degrees.  (This
-      // is about 1000 times more resolution than we get with angles around 90
-      // degrees.)  We use this to avoid having to deal with near singular
-      // cases when x is non-zero but tiny (e.g., 1.0e-200).
-      using std::abs;
-      const real z = 1/real(16);
-      GEOGRAPHICLIB_VOLATILE real y = abs(x);
-      // The compiler mustn't "simplify" z - (z - y) to y
-      y = y < z ? z - (z - y) : y;
-      return x < 0 ? -y : y;
-    }
-    static inline void SinCosNorm(real& sinx, real& cosx) {
-      real r = Math::hypot(sinx, cosx);
-      sinx /= r;
-      cosx /= r;
-    }
     static real Astroid(real x, real y);
 
     real _a, _f, _f1, _e2, _ep2, _n, _b, _c2, _etol2;
@@ -157,7 +139,6 @@ namespace GeographicLib {
       using std::ldexp;
       return ldexp(real(hi), 52) + lo;
     }
-    static const Math::real* rawC4coeff();
 
   public:
 
@@ -221,12 +202,16 @@ namespace GeographicLib {
        **********************************************************************/
       AREA          = 1U<<14 | CAP_C4,
       /**
-       * Do not wrap the \e lon2 in the direct calculation.
+       * Unroll \e lon2 in the direct calculation.  (This flag used to be
+       * called LONG_NOWRAP.)
        * @hideinitializer
        **********************************************************************/
-      LONG_NOWRAP   = 1U<<15,
+      LONG_UNROLL   = 1U<<15,
+      /// \cond SKIP
+      LONG_NOWRAP   = LONG_UNROLL,
+      /// \endcond
       /**
-       * All capabilities, calculate everything.  (LONG_NOWRAP is not
+       * All capabilities, calculate everything.  (LONG_UNROLL is not
        * included in this mask.)
        * @hideinitializer
        **********************************************************************/
@@ -526,8 +511,8 @@ namespace GeographicLib {
      *   M12 and \e M21;
      * - \e outmask |= GeodesicExact::AREA for the area \e S12;
      * - \e outmask |= GeodesicExact::ALL for all of the above;
-     * - \e outmask |= GeodesicExact::LONG_NOWRAP stops the returned value of
-     *   \e lon2 being wrapped into the range [&minus;180&deg;, 180&deg;).
+     * - \e outmask |= GeodesicExact::LONG_UNROLL to unroll \e lon2 instead of
+     *   wrapping it into the range [&minus;180&deg;, 180&deg;).
      * .
      * The function value \e a12 is always computed and returned and this
      * equals \e s12_a12 is \e arcmode is true.  If \e outmask includes
@@ -535,11 +520,12 @@ namespace GeographicLib {
      * s12_a12.  It is not necessary to include GeodesicExact::DISTANCE_IN in
      * \e outmask; this is automatically included is \e arcmode is false.
      *
-     * With the LONG_NOWRAP bit set, the quantity \e lon2 &minus; \e lon1
-     * indicates how many times the geodesic wrapped around the ellipsoid.
-     * Because \e lon2 might be outside the normal allowed range for
-     * longitudes, [&minus;540&deg;, 540&deg;), be sure to normalize it with
-     * Math::AngNormalize2 before using it in other GeographicLib calls.
+     * With the GeodesicExact::LONG_UNROLL bit set, the quantity \e lon2
+     * &minus; \e lon1 indicates how many times and in what sense the geodesic
+     * encircles the ellipsoid.  Because \e lon2 might be outside the normal
+     * allowed range for longitudes, [&minus;540&deg;, 540&deg;), be sure to
+     * normalize it with Math::AngNormalize2 before using it in other
+     * GeographicLib calls.
      **********************************************************************/
     Math::real GenDirect(real lat1, real lon1, real azi1,
                          bool arcmode, real s12_a12, unsigned outmask,

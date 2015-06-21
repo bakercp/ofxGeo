@@ -2,7 +2,7 @@
  * \file GeodesicLineExact.cpp
  * \brief Implementation for GeographicLib::GeodesicLineExact class
  *
- * Copyright (c) Charles Karney (2012-2014) <charles@karney.com> and licensed
+ * Copyright (c) Charles Karney (2012-2015) <charles@karney.com> and licensed
  * under the MIT/X11 License.  For more information, see
  * http://geographiclib.sourceforge.net/
  *
@@ -39,7 +39,7 @@ namespace GeographicLib {
     , _lat1(lat1)
     , _lon1(lon1)
     // Guard against underflow in salp0
-    , _azi1(GeodesicExact::AngRound(Math::AngNormalize(azi1)))
+    , _azi1(Math::AngRound(Math::AngNormalize(azi1)))
     , _a(g._a)
     , _f(g._f)
     , _b(g._b)
@@ -47,8 +47,8 @@ namespace GeographicLib {
     , _f1(g._f1)
     , _e2(g._e2)
     , _E(0, 0)
-      // Always allow latitude and azimuth
-    , _caps(caps | LATITUDE | AZIMUTH)
+      // Always allow latitude and azimuth and unrolling of longitude
+    , _caps(caps | LATITUDE | AZIMUTH | LONG_UNROLL)
   {
     real alp1 = _azi1 * Math::degree();
     // Enforce sin(pi) == 0 and cos(pi/2) == 0.  Better to face the ensuing
@@ -60,7 +60,7 @@ namespace GeographicLib {
     // Ensure cbet1 = +epsilon at poles
     sbet1 = _f1 * sin(phi);
     cbet1 = abs(lat1) == 90 ? tiny_ : cos(phi);
-    GeodesicExact::SinCosNorm(sbet1, cbet1);
+    Math::norm(sbet1, cbet1);
     _dn1 = (_f >= 0 ? sqrt(1 + g._ep2 * Math::sq(sbet1)) :
             sqrt(1 - _e2 * Math::sq(cbet1)) / _f1);
 
@@ -82,9 +82,9 @@ namespace GeographicLib {
     _csig1 = _comg1 = sbet1 != 0 || _calp1 != 0 ? cbet1 * _calp1 : 1;
     // Without normalization we have schi1 = somg1.
     _cchi1 = _f1 * _dn1 * _comg1;
-    GeodesicExact::SinCosNorm(_ssig1, _csig1); // sig1 in (-pi, pi]
-    // GeodesicExact::SinCosNorm(_somg1, _comg1); -- don't need to normalize!
-    // GeodesicExact::SinCosNorm(_schi1, _cchi1); -- don't need to normalize!
+    Math::norm(_ssig1, _csig1); // sig1 in (-pi, pi]
+    // Math::norm(_somg1, _comg1); -- don't need to normalize!
+    // Math::norm(_schi1, _cchi1); -- don't need to normalize!
 
     _k2 = Math::sq(_calp0) * g._ep2;
     _E.Reset(-_k2, -g._ep2, 1 + _k2, 1 + g._ep2);
@@ -179,11 +179,13 @@ namespace GeographicLib {
 
     if (outmask & LONGITUDE) {
       real somg2 = _salp0 * ssig2, comg2 = csig2;  // No need to normalize
+      int E = _salp0 < 0 ? -1 : 1;                 // east-going?
       // Without normalization we have schi2 = somg2.
       real cchi2 =  _f1 * dn2 *  comg2;
-      real chi12 = outmask & LONG_NOWRAP ? sig12
-        - (atan2(ssig2, csig2) - atan2(_ssig1, _csig1))
-        + (atan2(somg2, cchi2) - atan2(_somg1, _cchi1))
+      real chi12 = outmask & LONG_UNROLL
+        ? E * (sig12
+               - (atan2(    ssig2, csig2) - atan2(    _ssig1, _csig1))
+               + (atan2(E * somg2, cchi2) - atan2(E * _somg1, _cchi1)))
         : atan2(somg2 * _cchi1 - cchi2 * _somg1,
                 cchi2 * _cchi1 + somg2 * _somg1);
       real lam12 = chi12 -
@@ -191,7 +193,7 @@ namespace GeographicLib {
       real lon12 = lam12 / Math::degree();
       // Use Math::AngNormalize2 because longitude might have wrapped
       // multiple times.
-      lon2 = outmask & LONG_NOWRAP ? _lon1 + lon12 :
+      lon2 = outmask & LONG_UNROLL ? _lon1 + lon12 :
         Math::AngNormalize(Math::AngNormalize(_lon1) +
                            Math::AngNormalize2(lon12));
     }
@@ -200,8 +202,7 @@ namespace GeographicLib {
       lat2 = atan2(sbet2, _f1 * cbet2) / Math::degree();
 
     if (outmask & AZIMUTH)
-      // minus signs give range [-180, 180). 0- converts -0 to +0.
-      azi2 = 0 - atan2(-salp2, calp2) / Math::degree();
+      azi2 = Math::atan2d(salp2, calp2);
 
     if (outmask & (REDUCEDLENGTH | GEODESICSCALE)) {
       real J12 = _k2 * _D0 * (sig12 + _E.deltaD(ssig2, csig2, dn2) - _D1);

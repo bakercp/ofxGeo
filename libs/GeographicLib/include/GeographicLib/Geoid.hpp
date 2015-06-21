@@ -2,7 +2,7 @@
  * \file Geoid.hpp
  * \brief Header for GeographicLib::Geoid class
  *
- * Copyright (c) Charles Karney (2009-2014) <charles@karney.com> and licensed
+ * Copyright (c) Charles Karney (2009-2015) <charles@karney.com> and licensed
  * under the MIT/X11 License.  For more information, see
  * http://geographiclib.sourceforge.net/
  **********************************************************************/
@@ -34,9 +34,9 @@
 namespace GeographicLib {
 
   /**
-   * \brief Looking up the height of the geoid
+   * \brief Looking up the height of the geoid above the ellipsoid
    *
-   * This class evaluated the height of one of the standard geoids, EGM84,
+   * This class evaluates the height of one of the standard geoids, EGM84,
    * EGM96, or EGM2008 by bilinear or cubic interpolation into a rectangular
    * grid of data.  These geoid models are documented in
    * - EGM84:
@@ -51,9 +51,10 @@ namespace GeographicLib {
    * this class evaluates the height by interpolation into a grid of
    * precomputed values.
    *
-   * The geoid height, \e N, can be used to convert a height above the
-   * ellipsoid, \e h, to the corresponding height above the geoid (roughly the
-   * height above mean sea level), \e H, using the relations
+   * The height of the geoid above the ellipsoid, \e N, is sometimes called the
+   * geoid undulation.  It can be used to convert a height above the ellipsoid,
+   * \e h, to the corresponding height above the geoid (the orthometric height,
+   * roughly the height above mean sea level), \e H, using the relations
    *
    * &nbsp;&nbsp;&nbsp;\e h = \e N + \e H;
    * &nbsp;&nbsp;\e H = &minus;\e N + \e h.
@@ -68,7 +69,8 @@ namespace GeographicLib {
    * heights.  As a result of the way that the geoid data is stored, the
    * calculation of gradients can result in large quantization errors.  This is
    * particularly acute for fine grids, at high latitudes, and for the easterly
-   * gradient.
+   * gradient.  For this reason, the use of this facility is <b>DEPRECATED</b>.
+   * Instead, use the GravityModel class to evaluate the gravity vector.
    *
    * This class is typically \e not thread safe in that a single instantiation
    * cannot be safely used by multiple threads because of the way the object
@@ -288,7 +290,7 @@ namespace GeographicLib {
      * @param[in] lon longitude of the point (degrees).
      * @exception GeographicErr if there's a problem reading the data; this
      *   never happens if (\e lat, \e lon) is within a successfully cached area.
-     * @return geoid height (meters).
+     * @return the height of the geoid above the ellipsoid (meters).
      *
      * The latitude should be in [&minus;90&deg;, 90&deg;] and
      * longitude should be in [&minus;540&deg;, 540&deg;).
@@ -309,13 +311,14 @@ namespace GeographicLib {
      *   never happens if (\e lat, \e lon) is within a successfully cached area.
      * @return geoid height (meters).
      *
-     * The latitude should be in [&minus;90&deg;, 90&deg;] and
-     * longitude should be in [&minus;540&deg;, 540&deg;).  As a result
-     * of the way that the geoid data is stored, the calculation of gradients
-     * can result in large quantization errors.  This is particularly acute for
-     * fine grids, at high latitudes, and for the easterly gradient.  If you
-     * need to compute the direction of the acceleration due to gravity
-     * accurately, you should use GravityModel::Gravity.
+     * The latitude should be in [&minus;90&deg;, 90&deg;] and longitude should
+     * be in [&minus;540&deg;, 540&deg;).  As a result of the way that the
+     * geoid data is stored, the calculation of gradients can result in large
+     * quantization errors.  This is particularly acute for fine grids, at high
+     * latitudes, and for the easterly gradient.  For this reason, the
+     * computation of the gradient is <b>DEPRECATED</b>.  If you need to
+     * compute the direction of the acceleration due to gravity accurately, you
+     * should use GravityModel::Gravity.
      **********************************************************************/
     Math::real operator()(real lat, real lon, real& gradn, real& grade) const {
       return height(lat, lon, true, gradn, grade);
