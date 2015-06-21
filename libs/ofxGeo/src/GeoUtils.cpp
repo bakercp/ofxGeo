@@ -195,10 +195,11 @@ UTMLocation GeoUtils::toUTM(const Coordinate& coordinate)
                  easting,
                  zoneBuffer);
 
-    std::string zone = (zoneBuffer == 0) ? "" : std::string(zoneBuffer);
+    std::string zone = std::strlen(zoneBuffer) > 0 ? "" : std::string(zoneBuffer);
 
     return UTMLocation(easting, northing, zone);
 }
+
 
 Coordinate GeoUtils::toCoordinate(const UTMLocation& location)
 {

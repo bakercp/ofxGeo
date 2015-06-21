@@ -165,15 +165,12 @@ void ElevatedUTMLocation::setZone(const std::string& zone)
 }
 
 
-
-
 std::string ElevatedUTMLocation::toString() const
 {
     std::stringstream ss;
     ss << x << ", " << y << "," << z << ", " << _zone;
     return ss.str();
 }
-
 
 
 } } // namespace ofx::Geo
