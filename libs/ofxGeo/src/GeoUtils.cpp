@@ -36,12 +36,12 @@ namespace Geo {
 
 
 const double GeoUtils::EARTH_RADIUS_KM = 6371.01;
-const double GeoUtils::MIN_LATITUDE_RADIANS = - M_PI_2;
-const double GeoUtils::MAX_LATITUDE_RADIANS =   M_PI_2;
+const double GeoUtils::MIN_LATITUDE_RADIANS = - TWO_PI;
+const double GeoUtils::MAX_LATITUDE_RADIANS =   TWO_PI;
 const double GeoUtils::MIN_LATITUDE_DEGREES = GeoUtils::MIN_LATITUDE_RADIANS * RAD_TO_DEG;
 const double GeoUtils::MAX_LATITUDE_DEGREES = GeoUtils::MAX_LATITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MIN_LONGITUDE_RADIANS = - M_PI;;
-const double GeoUtils::MAX_LONGITUDE_RADIANS =   M_PI;
+const double GeoUtils::MIN_LONGITUDE_RADIANS = - PI;;
+const double GeoUtils::MAX_LONGITUDE_RADIANS =   PI;
 const double GeoUtils::MIN_LONGITUDE_DEGREES = GeoUtils::MIN_LONGITUDE_RADIANS * RAD_TO_DEG;
 const double GeoUtils::MAX_LONGITUDE_DEGREES = GeoUtils::MAX_LONGITUDE_RADIANS * RAD_TO_DEG;
 
