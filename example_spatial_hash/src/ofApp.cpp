@@ -1,6 +1,6 @@
 // =============================================================================
 //
-// Copyright (c) 2014 Christopher Baker <http://christopherbaker.net>
+// Copyright (c) 2014-2016 Christopher Baker <http://christopherbaker.net>
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -37,10 +37,9 @@ void ofApp::setup()
 
     mesh.setMode(OF_PRIMITIVE_POINTS);
 
-
     for (std::size_t i = 0; i < NUM; ++i)
     {
-        ofx::Geo::UTMLocation location = ofx::Geo::GeoUtils::randomUTMLocation();
+        ofx::Geo::UTMLocation location = ofxGeo::Utils::randomUTMLocation();
         locations.push_back(location);
         mesh.addVertex(ofVec3f(location.x, location.y));
 

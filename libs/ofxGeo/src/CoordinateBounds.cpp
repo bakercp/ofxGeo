@@ -39,7 +39,6 @@ CoordinateBounds::CoordinateBounds(const Coordinate& northwest,
                                    const Coordinate& southeast):
     _northwest(northwest),
     _southeast(southeast)
-
 {
 }
 

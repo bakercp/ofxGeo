@@ -1,2 +1,1 @@
 ofxGeo
-ofxSpatialHash

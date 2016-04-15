@@ -23,7 +23,7 @@
 // =============================================================================
 
 
-#include "ofx/Geo/GeoUtils.h"
+#include "ofx/Geo/Utils.h"
 #include "ofx/Geo/Coordinate.h"
 #include "ofx/Geo/UTMLocation.h"
 #include "UTM/UTM.h"
@@ -35,18 +35,18 @@ namespace ofx {
 namespace Geo {
 
 
-const double GeoUtils::EARTH_RADIUS_KM = 6371.01;
-const double GeoUtils::MIN_LATITUDE_RADIANS = - TWO_PI;
-const double GeoUtils::MAX_LATITUDE_RADIANS =   TWO_PI;
-const double GeoUtils::MIN_LATITUDE_DEGREES = GeoUtils::MIN_LATITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MAX_LATITUDE_DEGREES = GeoUtils::MAX_LATITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MIN_LONGITUDE_RADIANS = - PI;;
-const double GeoUtils::MAX_LONGITUDE_RADIANS =   PI;
-const double GeoUtils::MIN_LONGITUDE_DEGREES = GeoUtils::MIN_LONGITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MAX_LONGITUDE_DEGREES = GeoUtils::MAX_LONGITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::EARTH_RADIUS_KM = 6371.01;
+const double Utils::MIN_LATITUDE_RADIANS = - TWO_PI;
+const double Utils::MAX_LATITUDE_RADIANS =   TWO_PI;
+const double Utils::MIN_LATITUDE_DEGREES = Utils::MIN_LATITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MAX_LATITUDE_DEGREES = Utils::MAX_LATITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MIN_LONGITUDE_RADIANS = - PI;;
+const double Utils::MAX_LONGITUDE_RADIANS =   PI;
+const double Utils::MIN_LONGITUDE_DEGREES = Utils::MIN_LONGITUDE_RADIANS * RAD_TO_DEG;
+const double Utils::MAX_LONGITUDE_DEGREES = Utils::MAX_LONGITUDE_RADIANS * RAD_TO_DEG;
 
 
-std::vector<Coordinate> GeoUtils::decodeGeoPolyline(const std::string& encodedGeoPolyline)
+std::vector<Coordinate> Utils::decodeGeoPolyline(const std::string& encodedGeoPolyline)
 {
     std::vector<Coordinate> polyline;
 
@@ -97,7 +97,7 @@ std::vector<Coordinate> GeoUtils::decodeGeoPolyline(const std::string& encodedGe
 }
 
 
-double GeoUtils::distanceSpherical(const Coordinate& coordinate0,
+double Utils::distanceSpherical(const Coordinate& coordinate0,
                                    const Coordinate& coordinate1)
 {
     double lat0 = coordinate0.getLatitudeRad();
@@ -113,7 +113,7 @@ double GeoUtils::distanceSpherical(const Coordinate& coordinate0,
 }
 
 
-double GeoUtils::distanceHaversine(const Coordinate& coordinate0,
+double Utils::distanceHaversine(const Coordinate& coordinate0,
                                    const Coordinate& coordinate1)
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
@@ -135,7 +135,7 @@ double GeoUtils::distanceHaversine(const Coordinate& coordinate0,
 }
 
 
-double GeoUtils::bearingHaversine(const Coordinate& coordinate0,
+double Utils::bearingHaversine(const Coordinate& coordinate0,
                                   const Coordinate& coordinate1)
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
@@ -154,7 +154,7 @@ double GeoUtils::bearingHaversine(const Coordinate& coordinate0,
 }
 
 
-Coordinate GeoUtils::midpoint(const Coordinate& coordinate0,
+Coordinate Utils::midpoint(const Coordinate& coordinate0,
                               const Coordinate& coordinate1)
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
@@ -182,7 +182,7 @@ Coordinate GeoUtils::midpoint(const Coordinate& coordinate0,
 }
 
 
-UTMLocation GeoUtils::toUTM(const Coordinate& coordinate)
+UTMLocation Utils::toUTM(const Coordinate& coordinate)
 {
     double northing;
     double easting;
@@ -201,7 +201,7 @@ UTMLocation GeoUtils::toUTM(const Coordinate& coordinate)
 }
 
 
-Coordinate GeoUtils::toCoordinate(const UTMLocation& location)
+Coordinate Utils::toCoordinate(const UTMLocation& location)
 {
     double latitude = 0;
     double longitude = 0;
@@ -216,26 +216,26 @@ Coordinate GeoUtils::toCoordinate(const UTMLocation& location)
 }
 
 
-Coordinate GeoUtils::randomCoordinate()
+Coordinate Utils::randomCoordinate()
 {
     return Coordinate(ofRandom(MIN_LATITUDE_DEGREES, MAX_LATITUDE_DEGREES),
                       ofRandom(MIN_LONGITUDE_DEGREES, MAX_LONGITUDE_DEGREES));
 }
 
 
-UTMLocation GeoUtils::randomUTMLocation()
+UTMLocation Utils::randomUTMLocation()
 {
     return toUTM(randomCoordinate());
 }
 
 
-ofVec2d GeoUtils::toVec(const UTMLocation& location)
+ofVec2d Utils::toVec(const UTMLocation& location)
 {
     return ofVec2d(location.getEasting(), location.getNorthing());
 }
 
 
-ofVec2d GeoUtils::toVec(const Coordinate& coordinate)
+ofVec2d Utils::toVec(const Coordinate& coordinate)
 {
     return toVec(toUTM(coordinate));
 }

@@ -30,9 +30,10 @@
 #include "ofVec3d.h"
 #include "ofVec4d.h"
 #include "ofRectangled.h"
-
-#include "ofxSpatialHash.h"
+#include "UTM/UTM.h"
 #include "ofx/Geo/Coordinate.h"
 #include "ofx/Geo/UTMLocation.h"
-#include "ofx/Geo/GeoUtils.h"
-#include "UTM/UTM.h"
+#include "ofx/Geo/Utils.h"
+
+
+namespace ofxGeo = ofx::Geo;

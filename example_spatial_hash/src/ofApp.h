@@ -28,6 +28,7 @@
 
 #include "ofMain.h"
 #include "ofxGeo.h"
+#include "ofxSpatialHash.h"
 
 
 class ofApp: public ofBaseApp
@@ -39,20 +40,20 @@ public:
     void draw();
 
     // A collection of Random UTMCoordinates.
-    std::vector<ofx::Geo::UTMLocation> locations;
+    std::vector<ofxGeo::UTMLocation> locations;
 
     /// \brief The spatial hash specialized for ofx::Geo::UTMLocation.
     ///
     /// We must also specify the
-    ofx::KDTree<ofx::Geo::UTMLocation, double> hash;
+    ofx::KDTree<ofxGeo::UTMLocation, double> hash;
 
     /// \brief The search results specialized for ofx::Geo::UTMLocation.
-    ofx::KDTree<ofx::Geo::UTMLocation, double>::SearchResults searchResults;
+    ofx::KDTree<ofxGeo::UTMLocation, double>::SearchResults searchResults;
 
     /// \brief A mesh to make it easier to draw lots of points.
     ofMesh mesh;
 
-    ofx::Geo::UTMLocation mouse;
+    ofxGeo::UTMLocation mouse;
     
     ofRectangled bounds;
 

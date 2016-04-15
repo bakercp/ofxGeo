@@ -41,7 +41,7 @@ class UTMLocation;
 
 
 /// \brief A collection of utilities for geographic tasks.
-class GeoUtils
+class Utils
 {
 public:
     /// \brief Convert a string-encoded polyline into a vector of coodinates.
@@ -149,6 +149,10 @@ public:
 
     /// \brief The maximum value for a longitude, + 180 degrees.
     static const double MAX_LONGITUDE_DEGREES;
+
+private:
+    Utils() = delete;
+    ~Utils() = delete;
 
 };
 
