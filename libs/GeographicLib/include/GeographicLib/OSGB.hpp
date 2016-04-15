@@ -76,8 +76,7 @@ namespace GeographicLib {
      * @param[out] gamma meridian convergence at point (degrees).
      * @param[out] k scale of projection at point.
      *
-     * \e lat should be in the range [&minus;90&deg;, 90&deg;]; \e lon
-     * should be in the range [&minus;540&deg;, 540&deg;).
+     * \e lat should be in the range [&minus;90&deg;, 90&deg;].
      **********************************************************************/
     static void Forward(real lat, real lon,
                         real& x, real& y, real& gamma, real& k) {
@@ -205,14 +204,6 @@ namespace GeographicLib {
      **********************************************************************/
     static Math::real Flattening()
     { return real(20923713 - 20853810) / 20923713; }
-
-    /// \cond SKIP
-    /**
-     * <b>DEPRECATED</b>
-     * @return \e r the inverse flattening of the Airy 1830 ellipsoid.
-     **********************************************************************/
-    static Math::real InverseFlattening() { return 1/Flattening(); }
-    /// \endcond
 
     /**
      * @return \e k0 central scale for the OSGB projection (0.9996012717...).

@@ -41,8 +41,7 @@ namespace GeographicLib {
      *
      * @param[in] a equatorial radius (meters).
      * @param[in] f flattening of ellipsoid.  Setting \e f = 0 gives a sphere.
-     *   Negative \e f gives a prolate ellipsoid.  If \e f &gt; 1, set
-     *   flattening to 1/\e f.
+     *   Negative \e f gives a prolate ellipsoid.
      * @param[in] k0 central scale factor.
      * @exception GeographicErr if \e a, (1 &minus; \e f) \e a, or \e k0 is
      *   not positive.
@@ -74,8 +73,7 @@ namespace GeographicLib {
      *
      * No false easting or northing is added.  \e lat should be in the range
      * (&minus;90&deg;, 90&deg;] for \e northp = true and in the range
-     * [&minus;90&deg;, 90&deg;) for \e northp = false; \e lon should
-     * be in the range [&minus;540&deg;, 540&deg;).
+     * [&minus;90&deg;, 90&deg;) for \e northp = false.
      **********************************************************************/
     void Forward(bool northp, real lat, real lon,
                  real& x, real& y, real& gamma, real& k) const;
@@ -130,14 +128,6 @@ namespace GeographicLib {
      *   the constructor.
      **********************************************************************/
     Math::real Flattening() const { return _f; }
-
-    /// \cond SKIP
-    /**
-     * <b>DEPRECATED</b>
-     * @return \e r the inverse flattening of the ellipsoid.
-     **********************************************************************/
-    Math::real InverseFlattening() const { return 1/_f; }
-    /// \endcond
 
     /**
      * The central scale for the projection.  This is the value of \e k0 used

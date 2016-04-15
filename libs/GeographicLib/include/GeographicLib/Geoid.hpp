@@ -62,16 +62,6 @@ namespace GeographicLib {
    * See \ref geoid for details of how to install the data sets, the data
    * format, estimates of the interpolation errors, and how to use caching.
    *
-   * In addition to returning the geoid height, the gradient of the geoid can
-   * be calculated.  The gradient is defined as the rate of change of the geoid
-   * as a function of position on the ellipsoid.  This uses the parameters for
-   * the WGS84 ellipsoid.  The gradient defined in terms of the interpolated
-   * heights.  As a result of the way that the geoid data is stored, the
-   * calculation of gradients can result in large quantization errors.  This is
-   * particularly acute for fine grids, at high latitudes, and for the easterly
-   * gradient.  For this reason, the use of this facility is <b>DEPRECATED</b>.
-   * Instead, use the GravityModel class to evaluate the gravity vector.
-   *
    * This class is typically \e not thread safe in that a single instantiation
    * cannot be safely used by multiple threads because of the way the object
    * reads the data set and because it maintains a single-cell cache.  If
@@ -180,8 +170,7 @@ namespace GeographicLib {
         }
       }
     }
-    real height(real lat, real lon, bool gradp,
-                real& grade, real& gradn) const;
+    real height(real lat, real lon) const;
     Geoid(const Geoid&);            // copy constructor not allowed
     Geoid& operator=(const Geoid&); // copy assignment not allowed
   public:
@@ -251,8 +240,7 @@ namespace GeographicLib {
      * parallels \e south and \e north and the meridians \e west and \e east.
      * \e east is always interpreted as being east of \e west, if necessary by
      * adding 360&deg; to its value.  \e south and \e north should be in
-     * the range [&minus;90&deg;, 90&deg;]; \e west and \e east should
-     * be in the range [&minus;540&deg;, 540&deg;).
+     * the range [&minus;90&deg;, 90&deg;].
      **********************************************************************/
     void CacheArea(real south, real west, real north, real east) const;
 
@@ -292,36 +280,10 @@ namespace GeographicLib {
      *   never happens if (\e lat, \e lon) is within a successfully cached area.
      * @return the height of the geoid above the ellipsoid (meters).
      *
-     * The latitude should be in [&minus;90&deg;, 90&deg;] and
-     * longitude should be in [&minus;540&deg;, 540&deg;).
+     * The latitude should be in [&minus;90&deg;, 90&deg;].
      **********************************************************************/
     Math::real operator()(real lat, real lon) const {
-      real gradn, grade;
-      return height(lat, lon, false, gradn, grade);
-    }
-
-    /**
-     * Compute the geoid height and gradient at a point
-     *
-     * @param[in] lat latitude of the point (degrees).
-     * @param[in] lon longitude of the point (degrees).
-     * @param[out] gradn northerly gradient (dimensionless).
-     * @param[out] grade easterly gradient (dimensionless).
-     * @exception GeographicErr if there's a problem reading the data; this
-     *   never happens if (\e lat, \e lon) is within a successfully cached area.
-     * @return geoid height (meters).
-     *
-     * The latitude should be in [&minus;90&deg;, 90&deg;] and longitude should
-     * be in [&minus;540&deg;, 540&deg;).  As a result of the way that the
-     * geoid data is stored, the calculation of gradients can result in large
-     * quantization errors.  This is particularly acute for fine grids, at high
-     * latitudes, and for the easterly gradient.  For this reason, the
-     * computation of the gradient is <b>DEPRECATED</b>.  If you need to
-     * compute the direction of the acceleration due to gravity accurately, you
-     * should use GravityModel::Gravity.
-     **********************************************************************/
-    Math::real operator()(real lat, real lon, real& gradn, real& grade) const {
-      return height(lat, lon, true, gradn, grade);
+      return height(lat, lon);
     }
 
     /**
@@ -341,8 +303,7 @@ namespace GeographicLib {
      **********************************************************************/
     Math::real ConvertHeight(real lat, real lon, real h,
                              convertflag d) const {
-      real gradn, grade;
-      return h + real(d) * height(lat, lon, true, gradn, grade);
+      return h + real(d) * height(lat, lon);
     }
 
     ///@}
@@ -478,15 +439,6 @@ namespace GeographicLib {
      **********************************************************************/
     Math::real Flattening() const { return Constants::WGS84_f(); }
     ///@}
-
-    /// \cond SKIP
-    /**
-     * <b>DEPRECATED</b>
-     * @return \e r the inverse flattening of the WGS84 ellipsoid.
-     **********************************************************************/
-    Math::real InverseFlattening() const
-    { return 1/Constants::WGS84_f(); }
-    /// \endcond
 
     /**
      * @return the default path for geoid data files.
