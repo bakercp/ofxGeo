@@ -39,9 +39,9 @@ public:
     ofxGeo::Coordinate london;
     ofxGeo::Coordinate tokyo;
 
-    double distanceSpherical;
-    double distanceHaversine;
-    double bearingHaversine;
+    double distanceSpherical = 0.0;
+    double distanceHaversine = 0.0;
+    double bearingHaversine = 0.0;
 
     ofxGeo::Coordinate midpoint;
 
