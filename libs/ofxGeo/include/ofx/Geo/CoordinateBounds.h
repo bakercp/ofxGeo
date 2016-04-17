@@ -65,6 +65,12 @@ public:
     /// \param northwest The southeast corner of the CooridinateBounds.
     void setSoutheast(const Coordinate& southeast);
 
+    /// \returns the southwest corner of the CooridinateBounds.
+    Coordinate getSouthWest() const;
+
+    /// \returns the northeast corner of the CooridinateBounds.
+    Coordinate getNorthEast() const;
+
 private:
     /// \brief the northwest corner of the CoordinateBounds.
     Coordinate _northwest;

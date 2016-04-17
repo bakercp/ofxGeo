@@ -72,4 +72,16 @@ void CoordinateBounds::setSoutheast(const Coordinate& southeast)
 }
 
 
+Coordinate CoordinateBounds::getSouthWest() const
+{
+    return Coordinate(_southeast.getLatitude(), _northwest.getLongitude());
+}
+
+
+Coordinate CoordinateBounds::getNorthEast() const
+{
+    return Coordinate(_northwest.getLatitude(), _southeast.getLongitude());
+}
+
+
 } } // namespace ofx::Geo
