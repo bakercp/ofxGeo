@@ -27,6 +27,7 @@
 
 
 #include <iostream>
+#include <string>
 
 
 namespace ofx {
