@@ -28,8 +28,7 @@
 
 #include <string>
 #include <vector>
-#include "ofVec2d.h"
-#include "ofVec3d.h"
+#include "ofTypes.h"
 
 
 namespace ofx {
@@ -41,7 +40,7 @@ class UTMLocation;
 
 
 /// \brief A collection of utilities for geographic tasks.
-class Utils
+class GeoUtils
 {
 public:
     /// \brief Convert a string-encoded polyline into a vector of coodinates.
@@ -98,12 +97,12 @@ public:
     /// \brief Convert the UTMLocation to an ofVec2f.
     /// \param location The UTMLocation.
     /// \returns the converted location.
-    static ofVec2d toVec(const UTMLocation& location);
+    static glm::dvec2 toVec(const UTMLocation& location);
 
     /// \brief Convert the Coordinate to an ofVec2f via a UTM Location.
     /// \param coordinate The Coordinate.
     /// \returns the converted location.
-    static ofVec2d toVec(const Coordinate& coordinate);
+    static glm::dvec2 toVec(const Coordinate& coordinate);
 
     /// \brief Generate a random Coordiante.
     /// \returns A Coordiante with
@@ -151,8 +150,8 @@ public:
     static const double MAX_LONGITUDE_DEGREES;
 
 private:
-    Utils() = delete;
-    ~Utils() = delete;
+    GeoUtils() = delete;
+    ~GeoUtils() = delete;
 
 };
 

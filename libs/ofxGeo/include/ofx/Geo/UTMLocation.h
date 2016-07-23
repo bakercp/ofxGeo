@@ -28,7 +28,7 @@
 
 #include <iostream>
 #include <sstream>
-#include "ofVec3d.h"
+#include "ofTypes.h"
 
 
 namespace ofx {
@@ -37,7 +37,7 @@ namespace Geo {
 
 /// \brief Defines a location in Universal Transverse Mercator (UTM) space.
 /// \sa http://en.wikipedia.org/wiki/Universal_Transverse_Mercator_coordinate_system
-class UTMLocation: public ofVec2d
+class UTMLocation: public glm::dvec2
 {
 public:
     /// \brief Create an empty UTMLocation.
@@ -101,7 +101,7 @@ inline std::ostream& operator << (std::ostream& os, const UTMLocation& location)
 }
 
 
-class ElevatedUTMLocation: public ofVec3d
+class ElevatedUTMLocation: public glm::dvec3
 {
 public:
     /// \brief Create a 0, 0, 0 ElevatedUTMLocation.

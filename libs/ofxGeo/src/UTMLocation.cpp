@@ -31,7 +31,7 @@ namespace Geo {
 
 
 UTMLocation::UTMLocation():
-    ofVec2d(0, 0),
+    glm::dvec2(0, 0),
     _zone("")
 {
 }
@@ -40,7 +40,7 @@ UTMLocation::UTMLocation():
 UTMLocation::UTMLocation(double easting,
                          double northing,
                          const std::string& zone):
-    ofVec2d(easting, northing),
+    glm::dvec2(easting, northing),
     _zone(zone)
 {
 }
@@ -96,7 +96,7 @@ std::string UTMLocation::toString() const
 
 
 ElevatedUTMLocation::ElevatedUTMLocation():
-    ofVec3d(0, 0, 0),
+    glm::dvec3(0, 0, 0),
     _zone("")
 {
 }
@@ -106,7 +106,7 @@ ElevatedUTMLocation::ElevatedUTMLocation(double easting,
                                          double northing,
                                          double elevation,
                                          const std::string& zone):
-    ofVec3d(easting, northing, elevation),
+    glm::dvec3(easting, northing, elevation),
     _zone(zone)
 {
 }
