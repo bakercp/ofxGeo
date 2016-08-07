@@ -31,5 +31,4 @@
 #include "ofx/Geo/UTMLocation.h"
 #include "ofx/Geo/GeoUtils.h"
 
-
 namespace ofxGeo = ofx::Geo;

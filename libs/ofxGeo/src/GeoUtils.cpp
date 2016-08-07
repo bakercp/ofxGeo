@@ -36,14 +36,14 @@ namespace Geo {
 
 
 const double GeoUtils::EARTH_RADIUS_KM = 6371.01;
-const double GeoUtils::MIN_LATITUDE_RADIANS = - TWO_PI;
-const double GeoUtils::MAX_LATITUDE_RADIANS =   TWO_PI;
-const double GeoUtils::MIN_LATITUDE_DEGREES = GeoUtils::MIN_LATITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MAX_LATITUDE_DEGREES = GeoUtils::MAX_LATITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MIN_LONGITUDE_RADIANS = - PI;;
-const double GeoUtils::MAX_LONGITUDE_RADIANS =   PI;
-const double GeoUtils::MIN_LONGITUDE_DEGREES = GeoUtils::MIN_LONGITUDE_RADIANS * RAD_TO_DEG;
-const double GeoUtils::MAX_LONGITUDE_DEGREES = GeoUtils::MAX_LONGITUDE_RADIANS * RAD_TO_DEG;
+const double GeoUtils::MIN_LATITUDE_RADIANS = - glm::two_pi<double>();
+const double GeoUtils::MAX_LATITUDE_RADIANS =   glm::two_pi<double>();
+const double GeoUtils::MIN_LATITUDE_DEGREES = glm::degrees(GeoUtils::MIN_LATITUDE_RADIANS);
+const double GeoUtils::MAX_LATITUDE_DEGREES = glm::degrees(GeoUtils::MAX_LATITUDE_RADIANS);
+const double GeoUtils::MIN_LONGITUDE_RADIANS = - glm::pi<double>();
+const double GeoUtils::MAX_LONGITUDE_RADIANS =   glm::pi<double>();
+const double GeoUtils::MIN_LONGITUDE_DEGREES = glm::degrees(GeoUtils::MIN_LONGITUDE_RADIANS);
+const double GeoUtils::MAX_LONGITUDE_DEGREES = glm::degrees(GeoUtils::MAX_LONGITUDE_RADIANS);
 
 
 std::vector<Coordinate> GeoUtils::decodeGeoPolyline(const std::string& encodedGeoPolyline)
@@ -105,8 +105,8 @@ double GeoUtils::distanceSpherical(const Coordinate& coordinate0,
     double lat1 = coordinate1.getLatitudeRad();
     double lon1 = coordinate1.getLongitudeRad();
 
-    double sum = sin(lat0) * sin(lat1)
-               + cos(lat0) * cos(lat1) * cos(lon1 - lon0);
+    double sum = std::sin(lat0) * std::sin(lat1)
+               + std::cos(lat0) * std::cos(lat1) * std::cos(lon1 - lon0);
 
     return EARTH_RADIUS_KM * acos(sum);
 
@@ -124,12 +124,12 @@ double GeoUtils::distanceHaversine(const Coordinate& coordinate0,
     double lat0 = coordinate0.getLatitudeRad();
     double lat1 = coordinate1.getLatitudeRad();
 
-    double s0 = sin(deltaLat / 2.0);
-    double s1 = sin(deltaLon / 2.0);
+    double s0 = std::sin(deltaLat / 2.0);
+    double s1 = std::sin(deltaLon / 2.0);
 
-    double a = s0 * s0 + s1 * s1 * cos(lat0) * cos(lat1);
+    double a = s0 * s0 + s1 * s1 * std::cos(lat0) * std::cos(lat1);
 
-    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+    double c = 2 * std::atan2(sqrt(a), std::sqrt(1 - a));
 
     return EARTH_RADIUS_KM * c;
 }
@@ -145,11 +145,11 @@ double GeoUtils::bearingHaversine(const Coordinate& coordinate0,
     double lat0 = coordinate0.getLatitudeRad();
     double lat1 = coordinate1.getLatitudeRad();
 
-    double y = sin(deltaLon) * cos(lat1);
-    double x = cos(lat0) * cos(lat1) -
-               sin(lat0) * cos(lat1) * cos(deltaLon);
+    double y = std::sin(deltaLon) * std::cos(lat1);
+    double x = std::cos(lat0) * std::cos(lat1) -
+               std::sin(lat0) * std::cos(lat1) * cos(deltaLon);
 
-    return ofWrapDegrees(RAD_TO_DEG * atan2(y, x));
+    return ofWrapDegrees(glm::degrees(std::atan2(y, x)));
 
 }
 
@@ -166,16 +166,16 @@ Coordinate GeoUtils::midpoint(const Coordinate& coordinate0,
 
     double lon0 = coordinate1.getLongitudeRad();
 
-    double Bx = cos(lat1) * cos(deltaLon);
-    double By = cos(lat1) * sin(deltaLon);
+    double Bx = std::cos(lat1) * std::cos(deltaLon);
+    double By = std::cos(lat1) * std::sin(deltaLon);
 
-    double cL0 = (cos(lat0) + Bx);
+    double cL0 = std::cos(lat0) + Bx;
 
-    double t0 = sin(lat0) + sin(lat1);
-    double t1 = sqrt(cL0 * cL0 + By * By);
+    double t0 = std::sin(lat0) + std::sin(lat1);
+    double t1 = std::sqrt(cL0 * cL0 + By * By);
 
-    double lat3 = RAD_TO_DEG * atan2(t0, t1);
-    double lon3 = RAD_TO_DEG * atan2(By, cL0) + lon0;
+    double lat3 = glm::degrees(std::atan2(t0, t1));
+    double lon3 = glm::degrees(std::atan2(By, cL0)) + lon0;
 
     return Coordinate(lat3, lon3);
 

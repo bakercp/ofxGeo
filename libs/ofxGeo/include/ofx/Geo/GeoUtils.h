@@ -94,12 +94,12 @@ public:
     /// \returns the converted Coordinate.
     static Coordinate toCoordinate(const UTMLocation& location);
 
-    /// \brief Convert the UTMLocation to an ofVec2f.
+    /// \brief Convert the UTMLocation to an glm::dvec2.
     /// \param location The UTMLocation.
     /// \returns the converted location.
     static glm::dvec2 toVec(const UTMLocation& location);
 
-    /// \brief Convert the Coordinate to an ofVec2f via a UTM Location.
+    /// \brief Convert the Coordinate to an glm::dvec2 via a UTM Location.
     /// \param coordinate The Coordinate.
     /// \returns the converted location.
     static glm::dvec2 toVec(const Coordinate& coordinate);

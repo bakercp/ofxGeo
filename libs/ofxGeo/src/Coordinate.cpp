@@ -31,9 +31,13 @@ namespace ofx {
 namespace Geo {
 
 
-Coordinate::Coordinate():
-    _latitude(0),
-    _longitude(0)
+Coordinate::Coordinate(): Coordinate(0, 0)
+{
+}
+
+
+Coordinate::Coordinate(const glm::dvec2& coordinate):
+    Coordinate(coordinate.x, coordinate.y)
 {
 }
 
@@ -71,13 +75,13 @@ double Coordinate::getLongitude() const
 
 double Coordinate::getLatitudeRad() const
 {
-    return _latitude * DEG_TO_RAD;
+    return glm::radians<double>(_latitude);
 }
 
 
 double Coordinate::getLongitudeRad() const
 {
-    return _longitude * DEG_TO_RAD;
+    return glm::radians<double>(_longitude);
 }
 
 
@@ -101,8 +105,13 @@ std::string Coordinate::toString() const
 }
 
 
-ElevatedCoordinate::ElevatedCoordinate():
-    _elevation(0)
+ElevatedCoordinate::ElevatedCoordinate(): ElevatedCoordinate(0, 0, 0)
+{
+}
+
+
+ElevatedCoordinate::ElevatedCoordinate(const glm::dvec3& coordinate):
+    ElevatedCoordinate(coordinate.x, coordinate.y, coordinate.z)
 {
 }
 
@@ -148,7 +157,6 @@ std::string ElevatedCoordinate::toString() const
     ss << getLatitude() << "," << getLongitude() << "," << getElevation();
     return ss.str();
 }
-
 
 
 } } // namespace ofx::Geo

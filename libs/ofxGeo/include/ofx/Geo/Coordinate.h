@@ -28,6 +28,7 @@
 
 #include <iostream>
 #include <string>
+#include "ofTypes.h"
 
 
 namespace ofx {
@@ -40,6 +41,14 @@ class Coordinate
 public:
     /// \brief Create a 0, 0 Coordinate.
     Coordinate();
+
+    /// \brief Create a coordinate from a vector.
+    ///
+    /// coordinate will be assigned to latitude.
+    /// coordinate will be assigned to longitude.
+    ///
+    /// \param coordinate the coordinate to assign.
+    Coordinate(const glm::dvec2& coordinate);
 
     /// \brief Create a Coordinate with given latitude and logitude.
     /// \param latitude The latitude in degrees.
@@ -114,6 +123,14 @@ class ElevatedCoordinate: public Coordinate
 public:
     /// \brief Create a 0, 0, 0 ElevatedCoordinate.
     ElevatedCoordinate();
+
+    /// \brief Create a coordinate from a vector.
+    ///
+    /// coordinate will be assigned to latitude.
+    /// coordinate will be assigned to longitude.
+    ///
+    /// \param coordinate the coordinate to assign.
+    ElevatedCoordinate(const glm::dvec3& coordinate);
 
     /// \brief Create a Coordinate with given latitude, logitude and elevation.
     /// \param latitude The latitude in degrees.
