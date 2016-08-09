@@ -97,10 +97,12 @@ void Coordinate::setLongitude(double longitude)
 }
 
 
-std::string Coordinate::toString() const
+std::string Coordinate::toString(int precision) const
 {
     std::stringstream ss;
-    ss << getLatitude() << "," << getLongitude();
+    ss << std::fixed << std::setprecision(precision) << getLatitude();
+    ss << ",";
+    ss << std::fixed << std::setprecision(precision) << getLongitude();
     return ss.str();
 }
 

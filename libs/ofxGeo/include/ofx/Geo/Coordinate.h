@@ -44,8 +44,8 @@ public:
 
     /// \brief Create a coordinate from a vector.
     ///
-    /// coordinate will be assigned to latitude.
-    /// coordinate will be assigned to longitude.
+    /// Coordinate x will be assigned to latitude.
+    /// Coordinate y will be assigned to longitude.
     ///
     /// \param coordinate the coordinate to assign.
     Coordinate(const glm::dvec2& coordinate);
@@ -88,8 +88,12 @@ public:
     void setLongitude(double longitude);
 
     /// \brief Get coordinate as a string.
+    ///
+    /// Latitude and longitude require many decimal places at high resolution.
+    ///
+    /// \param precision The decimal precision coordinates.
     /// \returns the a comma separated latitude / longitude pair.
-    std::string toString() const;
+    std::string toString(int precision = 8) const;
 
     /// \brief Stream output.
     /// \param os the std::ostream.
