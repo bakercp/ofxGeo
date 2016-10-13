@@ -95,6 +95,9 @@ public:
     /// \returns the a comma separated latitude / longitude pair.
     std::string toString(int precision = 8) const;
 
+    /// \returns a non-cryptographic hash.
+    std::size_t hash() const;
+
     /// \brief Stream output.
     /// \param os the std::ostream.
     /// \param coordinate The Coordiante to output.
@@ -163,6 +166,9 @@ public:
     /// \returns the a comma separated latitude, longitude, elevation.
     std::string toString() const;
 
+    /// \returns a non-cryptographic hash.
+    std::size_t hash() const;
+
     /// \brief Stream output.
     /// \param os the std::ostream.
     /// \param coordinate The ElevatedCoordiante to output.
@@ -187,3 +193,33 @@ inline std::ostream& operator<<(std::ostream& os, const ElevatedCoordinate& coor
 
 
 } } // namespace ofx::Geo
+
+
+
+
+namespace std {
+
+
+template <> struct hash<ofx::Geo::Coordinate>
+{
+    size_t operator()(const ofx::Geo::Coordinate& coordinate) const
+    {
+        return coordinate.hash();
+    }
+};
+
+
+template <> struct hash<ofx::Geo::ElevatedCoordinate>
+{
+    size_t operator()(const ofx::Geo::ElevatedCoordinate& coordinate) const
+    {
+        return coordinate.hash();
+    }
+};
+
+
+} // namespace std
+
+
+
+

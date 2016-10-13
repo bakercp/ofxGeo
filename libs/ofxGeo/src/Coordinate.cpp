@@ -25,6 +25,7 @@
 
 #include "ofx/Geo/Coordinate.h"
 #include "ofConstants.h"
+#include "ofx/IO/Hash.h"
 
 
 namespace ofx {
@@ -107,6 +108,15 @@ std::string Coordinate::toString(int precision) const
 }
 
 
+std::size_t Coordinate::hash() const
+{
+    std::size_t seed = 0;
+    IO::Hash::combine(seed, _latitude);
+    IO::Hash::combine(seed, _longitude);
+    return seed;
+}
+
+
 ElevatedCoordinate::ElevatedCoordinate(): ElevatedCoordinate(0, 0, 0)
 {
 }
@@ -158,6 +168,14 @@ std::string ElevatedCoordinate::toString() const
     std::stringstream ss;
     ss << getLatitude() << "," << getLongitude() << "," << getElevation();
     return ss.str();
+}
+
+
+std::size_t ElevatedCoordinate::hash() const
+{
+    std::size_t seed = Coordinate::hash();
+    IO::Hash::combine(seed, _elevation);
+    return seed;
 }
 
 

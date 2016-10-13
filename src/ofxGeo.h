@@ -28,6 +28,7 @@
 
 #include "UTM/UTM.h"
 #include "ofx/Geo/Coordinate.h"
+#include "ofx/Geo/CoordinatePolyline.h"
 #include "ofx/Geo/UTMLocation.h"
 #include "ofx/Geo/GeoUtils.h"
 
