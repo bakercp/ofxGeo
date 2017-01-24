@@ -23,7 +23,6 @@ Linux, macOS [![Build Status](https://travis-ci.org/bakercp/ofxGeo.svg?branch=st
 
 Visual Studio, MSYS [![Build status](https://ci.appveyor.com/api/projects/status/vif3804ff9ub7yge/branch/master?svg=true)](https://ci.appveyor.com/project/bakercp/ofxgeo-g11h4/branch/master)
 
-
 ## Compatibility
 
 ### Branches
