@@ -1,3 +1,0 @@
-ofxGeo
-ofxSatellite
-ofxTime
