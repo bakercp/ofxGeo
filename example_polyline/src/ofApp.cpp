@@ -12,7 +12,7 @@ void ofApp::setup()
 {
     encodedPolyline = "_p~iF~ps|U_ulLnnqC_mqNvxq`@";
     
-    polyline = ofxGeo::Utils::decodeGeoPolyline(encodedPolyline);
+    polyline = ofxGeo::GeoUtils::decodeGeoPolyline(encodedPolyline);
 }
 
 

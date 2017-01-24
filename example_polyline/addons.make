@@ -1,1 +1,3 @@
 ofxGeo
+ofxIO
+ofxPoco
