@@ -21,7 +21,7 @@ API documentation can be found here.
 
 Linux, macOS [![Build Status](https://travis-ci.org/bakercp/ofxGeo.svg?branch=stable)](https://travis-ci.org/bakercp/ofxGeo)
 
-Visual Studio, MSYS [![Build status](https://ci.appveyor.com/api/projects/status/vif3804ff9ub7yge/branch/master?svg=true)](https://ci.appveyor.com/project/bakercp/ofxgeo-g11h4/branch/master)
+Visual Studio, MSYS [![Build status](https://ci.appveyor.com/api/projects/status/9mkyr5y11komakk5/branch/master?svg=true)](https://ci.appveyor.com/project/bakercp/ofxgeo/branch/master)
 
 ## Compatibility
 
