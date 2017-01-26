@@ -26,9 +26,7 @@ init:
   - if "%BUILDER%_%PLATFORM%"=="MSYS2_x86" set MSYSTEM=MINGW32
   - if "%BUILDER%_%PLATFORM%"=="MSYS2_x64" set MSYSTEM=MINGW64
   - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
-  - set OF_PARENT=%APPVEYOR_BUILD_FOLDER%\..\
-  - set OF_ROOT=
-  - cd %OF_PARENT%
+  - cd %APPVEYOR_BUILD_FOLDER%\..\
   - set OF_ROOT=%CD%\openFrameworks
   - cd ..
 install:
@@ -40,5 +38,3 @@ build_script:
   - set OF_ROOT=
   - echo %CD%
   - call scripts\ci\addons\build.cmd
-
-
