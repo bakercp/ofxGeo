@@ -186,6 +186,8 @@ matrix:
   exclude:
     - compiler: gcc
 install:
+  - export MAKEFILE_DEBUG=1
+  - export MAKEFLAGS=-s
   - export OF_ROOT=~/openFrameworks
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_ROOT
   - cd $OF_ROOT
