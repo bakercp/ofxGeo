@@ -185,14 +185,16 @@ matrix:
   # see https://github.com/travis-ci/travis-ci/issues/1228
   exclude:
     - compiler: gcc
-
+env:
+  global:
+    - OF_ROOT=~/openFrameworks
 install:
-  - cd ~
-  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks
-  - cd openFrameworks
+  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_ROOT
+  - cd $OF_ROOT
   - scripts/ci/addons/install.sh
 
 script:
+  - cd $OF_ROOT
   - scripts/ci/addons/build.sh
 
 git:

@@ -4,6 +4,7 @@ os: Visual Studio 2015 RC
 environment:
   global:
     APPVEYOR_OS_NAME: windows
+    OF_ROOT: %APPVEYOR_BUILD_FOLDER%\..\openFrameworks
   matrix:
   #MSYS2 Building
     - platform: x86
@@ -21,7 +22,6 @@ configuration: Debug
 shallow_clone: true
 clone_depth: 10
 init:
-- set OF_ROOT=%APPVEYOR_BUILD_FOLDER%/../openFrameworks
 - set MSYS2_PATH=c:\msys64
 - set CHERE_INVOKING=1
 - if "%BUILDER%_%PLATFORM%"=="MSYS2_x86" set MSYSTEM=MINGW32
@@ -29,12 +29,12 @@ init:
 - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
 
 install:
-- cd ..
-- git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks
+- git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
+- cd %OF_ROOT%
 - call openFrameworks\scripts\ci\addons\install.cmd
 
 build_script:
 - cd %OF_ROOT%
-- scripts\ci\addons\build.cmd
+- call scripts\ci\addons\build.cmd
 
 
