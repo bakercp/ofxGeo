@@ -50,3 +50,6 @@ do
     git clone --depth=$GH_DEPTH https://github.com/$GH_USERNAME/$addon.git $addon_path
   fi
 done
+
+echo "Listing currently installed addons ..."
+ls -la $OF_ADDONS/*
