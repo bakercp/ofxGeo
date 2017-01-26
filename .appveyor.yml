@@ -33,6 +33,7 @@ install:
   - cd %OF_ROOT%
   - call scripts\ci\addons\install.cmd
 
+
 build_script:
   - cd %OF_ROOT%
   - call scripts\ci\addons\build.cmd
