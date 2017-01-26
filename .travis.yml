@@ -193,6 +193,7 @@ install:
 
 script:
   - cd $OF_ROOT
+  - export OF_ROOT=
   - scripts/ci/addons/build.sh
 
 git:
