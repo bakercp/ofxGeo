@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
+echo "PWD TO FOLLOW"
+
+echo %PWD
 
 echo "Print all environmental variables!"
 
