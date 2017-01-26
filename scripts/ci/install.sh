@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
+
+echo "Print all environmental variables!"
+
+echo =========================================
+printenv
+
+echo =========================================
+
 # Get the current OF_ROOT
 OF_ROOT="${OF_ROOT:-~/openFrameworks}"
 OF_ADDONS=$OF_ROOT/addons
