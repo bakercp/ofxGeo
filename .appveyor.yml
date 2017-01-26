@@ -28,9 +28,9 @@ init:
   - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
   - set OF_PARENT=%APPVEYOR_BUILD_FOLDER%\..\
   - set OF_ROOT=
-  - pushd %OF_PARENT%
+  - cd %OF_PARENT%
   - set OF_ROOT=%CD%\openFrameworks
-  - popd
+  - cd ..
   - echo %OF_ROOT%
 install:
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
