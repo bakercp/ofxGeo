@@ -22,7 +22,7 @@ OF_ROOT="${OF_ROOT:-~/openFrameworks}"
 
 echo $OF_ROOT
 
-OF_ROOT="/$OF_ROOT" | sed 's/\\/\//g' | sed 's/://'
+OF_ROOT=`echo /$OF_ROOT" | sed 's/\\/\//g' | sed 's/://`
 
 echo "Cleaned OF_ROOT"
 echo $OF_ROOT
