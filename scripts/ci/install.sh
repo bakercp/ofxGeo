@@ -4,6 +4,8 @@ set -e
 
 echo "Print all environmental variables!"
 
+echo $OF_ROOT
+
 echo =========================================
 printenv
 
@@ -11,6 +13,9 @@ echo =========================================
 
 # Get the current OF_ROOT
 OF_ROOT="${OF_ROOT:-~/openFrameworks}"
+
+echo $OF_ROOT
+
 OF_ADDONS=$OF_ROOT/addons
 # Addon path
 # These paths assume that this file is located in

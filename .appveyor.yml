@@ -21,6 +21,7 @@ configuration: Debug
 shallow_clone: true
 clone_depth: 10
 init:
+- set OF_PATH=%APPVEYOR_BUILD_FOLDER%\..\openFrameworks
 - set MSYS2_PATH=c:\msys64
 - set CHERE_INVOKING=1
 - if "%BUILDER%_%PLATFORM%"=="MSYS2_x86" set MSYSTEM=MINGW32
