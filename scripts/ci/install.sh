@@ -22,10 +22,16 @@ OF_ROOT="${OF_ROOT:-~/openFrameworks}"
 
 echo $OF_ROOT
 
-OF_ROOT=$(echo $OF_ROOT | sed 's/\\/\//g' | sed 's/\(.\):/\/\1/')
+echo "REXPORTING ENV"
+export OF_ROOT=$(echo $OF_ROOT | sed 's/\\/\//g' | sed 's/\(.\):/\/\1/')
 
 echo "Cleaned OF_ROOT"
 echo $OF_ROOT
+
+echo =========================================
+printenv
+
+echo =========================================
 
 
 OF_ADDONS=$OF_ROOT/addons
