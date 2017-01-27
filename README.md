@@ -19,7 +19,7 @@ API documentation can be found here.
 
 ## Build Status
 
-Linux, macOS [![Build Status](https://travis-ci.org/bakercp/ofxGeo.svg?branch=stable)](https://travis-ci.org/bakercp/ofxGeo)
+Linux, macOS [![Build Status](https://travis-ci.org/bakercp/ofxGeo.svg?branch=master)](https://travis-ci.org/bakercp/ofxGeo)
 
 Visual Studio, MSYS [![Build status](https://ci.appveyor.com/api/projects/status/9mkyr5y11komakk5/branch/master?svg=true)](https://ci.appveyor.com/project/bakercp/ofxgeo/branch/master)
 
