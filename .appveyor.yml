@@ -36,7 +36,7 @@ install:
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
   - cd %OF_ROOT%
   - call scripts\ci\addons\install.cmd
-  - SET OF_  -
+  - SET OF_
 build_script:
   - echo %CD%
   - cd %OF_ROOT%
