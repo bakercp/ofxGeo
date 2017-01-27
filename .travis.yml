@@ -189,17 +189,19 @@ git:
   depth: 10
 
 before_install:
-  - export MAKEFILE_DEBUG=1
   - export MAKEFLAGS=-s
   - cd $TRAVIS_BUILD_DIR/../
   - export OF_ROOT=$PWD/openFrameworks
-  - printenv
+  - export OF_ADDON_NAME=$(basename $TRAVIS_BUILD_DIR)
+  - printenv | grep OF_
 install:
+  - echo %PWD
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_ROOT
   - cd $OF_ROOT
   - scripts/ci/addons/install.sh
   - printenv
 script:
+  - echo %PWD
   - cd $OF_ROOT
   - scripts/ci/addons/build.sh
   - printenv

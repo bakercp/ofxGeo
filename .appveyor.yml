@@ -21,7 +21,6 @@ configuration: Debug
 shallow_clone: true
 clone_depth: 10
 init:
-  - set MAKEFILE_DEBUG=1
   - set MAKEFLAGS=-s
   - set MSYS2_PATH=c:\msys64
   - set CHERE_INVOKING=1
@@ -30,13 +29,16 @@ init:
   - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
   - cd %APPVEYOR_BUILD_FOLDER%\..\
   - set OF_ROOT=%CD%\openFrameworks
-  - SET
+  - set OF_ADDON_NAME=%APPVEYOR_PROJECT_NAME%
+  - SET OF_
 install:
+  - echo %CD%
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
   - cd %OF_ROOT%
   - call scripts\ci\addons\install.cmd
-  - SET
+  - SET OF_  -
 build_script:
+  - echo %CD%
   - cd %OF_ROOT%
   - call scripts\ci\addons\build.cmd
-  - SET
+  - SET OF_
