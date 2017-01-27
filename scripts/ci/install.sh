@@ -1,11 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-# If AppVeyor, get the path as a posix path.
-if [ "${APPVEYOR}" == "True" ]; then
-  echo "This is an AppVeyor build."
-  OF_ROOT="$PWD"
-fi
+OF_ROOT=$( cd "$(dirname "$0")/../../../.." ; pwd -P )
 
 # Default addon github info.
 GH_USERNAME='bakercp'
