@@ -30,15 +30,10 @@ init:
   - cd %APPVEYOR_BUILD_FOLDER%\..\
   - set OF_ROOT=%CD%\openFrameworks
   - set OF_ADDON_NAME=%APPVEYOR_PROJECT_NAME%
-  - SET OF_
 install:
-  - echo %CD%
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
   - cd %OF_ROOT%
   - call scripts\ci\addons\install.cmd
-  - SET OF_
 build_script:
-  - echo %CD%
   - cd %OF_ROOT%
   - call scripts\ci\addons\build.cmd
-  - SET OF_
