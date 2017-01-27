@@ -3,7 +3,7 @@ set -e
 
 echo "PWD TO FOLLOW"
 
-echo %PWD
+echo $PWD
 
 echo "Print all environmental variables!"
 
@@ -18,7 +18,7 @@ printenv
 echo =========================================
 
 # Get the current OF_ROOT
-OF_ROOT="${OF_ROOT:$PWD}"
+OF_ROOT="${OF_ROOT:-$PWD}"
 
 echo $OF_ROOT
 
@@ -40,6 +40,9 @@ OF_ADDONS=$OF_ROOT/addons
 #   ADDON_NAME/ci/install.sh
 
 ADDON_PATH=$( cd $(dirname $0) ; cd ../../; pwd -P )
+
+echo $ADDON_PATH
+
 ADDON_NAME=${ADDON_PATH##*/}
 
 GH_USERNAME='bakercp'

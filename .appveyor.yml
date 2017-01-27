@@ -30,10 +30,13 @@ init:
   - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
   - cd %APPVEYOR_BUILD_FOLDER%\..\
   - set OF_ROOT=%CD%\openFrameworks
+  - SET
 install:
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
   - cd %OF_ROOT%
   - call scripts\ci\addons\install.cmd
+  - SET
 build_script:
   - cd %OF_ROOT%
   - call scripts\ci\addons\build.cmd
+  - SET

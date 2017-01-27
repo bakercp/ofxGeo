@@ -193,10 +193,13 @@ before_install:
   - export MAKEFLAGS=-s
   - cd $TRAVIS_BUILD_DIR/../
   - export OF_ROOT=$PWD/openFrameworks
+  - printenv
 install:
   - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_ROOT
   - cd $OF_ROOT
   - scripts/ci/addons/install.sh
+  - printenv
 script:
   - cd $OF_ROOT
   - scripts/ci/addons/build.sh
+  - printenv
