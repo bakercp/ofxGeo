@@ -18,7 +18,7 @@ printenv
 echo =========================================
 
 # Get the current OF_ROOT
-OF_ROOT="${OF_ROOT:-$PWD}"
+OF_ROOT="$PWD"
 
 echo $OF_ROOT
 
