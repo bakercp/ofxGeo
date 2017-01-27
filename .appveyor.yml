@@ -29,14 +29,12 @@ init:
   - if "%BUILDER%_%PLATFORM%"=="MSYS2_x64" set MSYSTEM=MINGW64
   - if "%BUILDER%"=="VS" set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
   - cd %APPVEYOR_BUILD_FOLDER%\..\
-  - set OF_ROOT=%CD%\openFrameworks
+  - set OF_PATH=%CD%\openFrameworks
   - cd ..
 install:
-  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_ROOT%
-  - cd %OF_ROOT%
+  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks %OF_PATH%
+  - cd %OF_PATH%
   - call scripts\ci\addons\install.cmd
 build_script:
-  - cd %OF_ROOT%
-  - set OF_ROOT=
-  - echo %CD%
+  - cd %OF_PATH%
   - call scripts\ci\addons\build.cmd

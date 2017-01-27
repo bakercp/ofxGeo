@@ -18,15 +18,15 @@ printenv
 echo =========================================
 
 # Get the current OF_ROOT
-OF_ROOT="${OF_ROOT:-~/openFrameworks}"
+OF_ROOT="${OF_ROOT:$PWD}"
 
 echo $OF_ROOT
 
 echo "REXPORTING ENV"
-export OF_ROOT=$(echo $OF_ROOT | sed 's/\\/\//g' | sed 's/\(.\):/\/\1/')
+# export OF_ROOT=$(echo $OF_ROOT | sed 's/\\/\//g' | sed 's/\(.\):/\/\1/')
 
-echo "Cleaned OF_ROOT"
-echo $OF_ROOT
+# echo "Cleaned OF_ROOT"
+# echo $OF_ROOT
 
 echo =========================================
 printenv

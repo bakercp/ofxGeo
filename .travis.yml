@@ -188,14 +188,13 @@ matrix:
 install:
   - export MAKEFILE_DEBUG=1
   - export MAKEFLAGS=-s
-  - export OF_ROOT=~/openFrameworks
-  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_ROOT
-  - cd $OF_ROOT
+  - export OF_PATH=~/openFrameworks
+  - git clone --depth=1 --branch=CI-TESTS https://github.com/bakercp/openFrameworks $OF_PATH
+  - cd $OF_PATH
   - scripts/ci/addons/install.sh
 
 script:
-  - cd $OF_ROOT
-  - export OF_ROOT=
+  - cd $OF_PATH
   - scripts/ci/addons/build.sh
 
 git:
