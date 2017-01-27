@@ -41,9 +41,19 @@ OF_ADDONS=$OF_ROOT/addons
 
 ADDON_PATH=$( cd $(dirname $0) ; cd ../../; pwd -P )
 
+
+
 echo $ADDON_PATH
 
-ADDON_NAME=${ADDON_PATH##*/}
+ADDON_NAME=$(basename $TRAVIS_BUILD_DIR)
+ADDON_PATH=${OF_ROOT}/addons/$ADDON_NAME
+
+echo "ADDON_NAME"
+echo $ADDON_NAME
+
+echo "ADDON_PATH"
+echo $ADDON_PATH
+
 
 GH_USERNAME='bakercp'
 GH_BRANCH='master'
