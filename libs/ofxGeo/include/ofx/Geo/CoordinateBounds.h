@@ -20,38 +20,38 @@ namespace Geo {
 class CoordinateBounds
 {
 public:
-    /// \brief Create an empty CooridinateBounds.
+    /// \brief Create a MAXIMUM_BOUNDS CooridinateBounds.
     CoordinateBounds();
 
     /// \brief Create CoordinateBounds from two Coordinates.
-    /// \param northwest The northwest coordinate of the CoordinateBounds.
-    /// \param southeast The southeast coordinate of the CoordinateBounds.
-    CoordinateBounds(const Coordinate& northwest, const Coordinate& southeast);
+    /// \param coordinate0 The first coordinate.
+    /// \param coordinate1 The second coordinate.
+    CoordinateBounds(const Coordinate& coordinate0,
+                     const Coordinate& coordinate1);
 
     /// \brief Destroy the CooridinateBounds.
     virtual ~CoordinateBounds();
 
-    /// \brief Set the northwest corner of the CooridinateBounds.
-    /// \param northwest The northwest corner of the CooridinateBounds.
-    void setNorthwest(const Coordinate& northwest);
+    /// \brief Expand the coordinate bounds to incorporate the given coordinate.
+    /// \param coordinate The coordinate to use for expansion.
+    void growToInclude(const Coordinate& coordinate);
 
     /// \brief Get the northwest corner of the CooridinateBounds.
     /// \returns the northwest corner of the CooridinateBounds.
-    Coordinate getNorthwest() const;
-
-    /// \brief Set the southeast corner of the CooridinateBounds.
-    /// \param northwest The southeast corner of the CooridinateBounds.
-    void setSoutheast(const Coordinate& southeast);
+    Coordinate northwest() const;
 
     /// \brief Get the southeast corner of the CooridinateBounds.
     /// \returns the southeast corner of the CooridinateBounds.
-    Coordinate getSoutheast() const;
+    Coordinate southeast() const;
 
     /// \returns the southwest corner of the CooridinateBounds.
-    Coordinate getSouthwest() const;
+    Coordinate southwest() const;
 
     /// \returns the northeast corner of the CooridinateBounds.
-    Coordinate getNortheast() const;
+    Coordinate northeast() const;
+
+    /// \brief The maximum coordinate bounds possible.
+    static const CoordinateBounds MAXIMUM_BOUNDS;
 
     /// \brief Get the bounds as a string.
     ///
@@ -69,12 +69,12 @@ public:
                                       const CoordinateBounds& bounds);
 
 private:
-    /// \brief the northwest corner of the CoordinateBounds.
-    Coordinate _northwest;
+    bool _unset = true;
+    double _minLatitude = -90.0;
+    double _maxLatitude =  90.00;
+    double _minLongitude = -180.00;
+    double _maxLongitude =  180.00;
 
-    /// \brief the southeast corner of the CoordinateBounds.
-    Coordinate _southeast;
-    
 };
 
 

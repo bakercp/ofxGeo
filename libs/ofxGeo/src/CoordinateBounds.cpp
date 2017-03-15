@@ -12,16 +12,20 @@ namespace ofx {
 namespace Geo {
 
 
+const CoordinateBounds CoordinateBounds::MAXIMUM_BOUNDS(Coordinate(90, -180),
+                                                        Coordinate(-85, 180));
+
+
 CoordinateBounds::CoordinateBounds()
 {
 }
 
 
-CoordinateBounds::CoordinateBounds(const Coordinate& northwest,
-                                   const Coordinate& southeast):
-    _northwest(northwest),
-    _southeast(southeast)
+CoordinateBounds::CoordinateBounds(const Coordinate& coordinate0,
+                                   const Coordinate& coordinate1)
 {
+    growToInclude(coordinate0);
+    growToInclude(coordinate1);
 }
 
 
@@ -30,45 +34,64 @@ CoordinateBounds::~CoordinateBounds()
 }
 
 
-void CoordinateBounds::setNorthwest(const Coordinate& northwest)
+void CoordinateBounds::growToInclude(const Coordinate& coordinate)
 {
-    _northwest = northwest;
+    if (_unset)
+    {
+        _minLatitude = coordinate.getLatitude();
+        _maxLatitude = coordinate.getLatitude();
+        _minLongitude = coordinate.getLongitude();
+        _maxLongitude = coordinate.getLongitude();
+        _unset = false;
+    }
+
+    _minLatitude = std::min(coordinate.getLatitude(), _minLatitude);
+    _maxLatitude = std::max(coordinate.getLatitude(), _maxLatitude);
+    _minLongitude = std::min(coordinate.getLongitude(), _minLongitude);
+    _maxLongitude = std::max(coordinate.getLongitude(), _maxLongitude);
+
 }
 
 
-Coordinate CoordinateBounds::getNorthwest() const
+Coordinate CoordinateBounds::northwest() const
 {
-    return _northwest;
+    if (_unset)
+        return MAXIMUM_BOUNDS.northeast();
+
+    return Coordinate(_maxLatitude, _minLongitude);
 }
 
 
-void CoordinateBounds::setSoutheast(const Coordinate& southeast)
+Coordinate CoordinateBounds::southeast() const
 {
-    _southeast = southeast;
+    if (_unset)
+        return MAXIMUM_BOUNDS.southeast();
+
+    return Coordinate(_minLatitude, _maxLongitude);
 }
 
 
-Coordinate CoordinateBounds::getSoutheast() const
+Coordinate CoordinateBounds::southwest() const
 {
-    return _southeast;
+    if (_unset)
+        return MAXIMUM_BOUNDS.southwest();
+
+    return Coordinate(_minLatitude, _minLongitude);
 }
 
 
-Coordinate CoordinateBounds::getSouthwest() const
+Coordinate CoordinateBounds::northeast() const
 {
-    return Coordinate(_southeast.getLatitude(), _northwest.getLongitude());
-}
+    if (_unset)
+        return MAXIMUM_BOUNDS.northeast();
 
-
-Coordinate CoordinateBounds::getNortheast() const
-{
-    return Coordinate(_northwest.getLatitude(), _southeast.getLongitude());
+    return Coordinate(_maxLatitude, _maxLongitude);
 }
 
 
 std::string CoordinateBounds::toString(int precision) const
 {
-    return _northwest.toString(precision) + "," + _southeast.toString(precision);
+    return southwest().toString(precision) + "," + northeast().toString(precision);
 }
 
 
