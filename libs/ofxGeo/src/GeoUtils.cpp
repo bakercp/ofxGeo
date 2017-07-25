@@ -122,14 +122,14 @@ double GeoUtils::bearingHaversine(const Coordinate& coordinate0,
 {
     // reference: http://www.movable-type.co.uk/scripts/latlong.html
 
-    double deltaLon = coordinate1.getLongitudeRad() - coordinate0.getLongitudeRad();
+    double deltaLon = glm::radians(coordinate1.getLongitude() - coordinate0.getLongitude());
 
     double lat0 = coordinate0.getLatitudeRad();
     double lat1 = coordinate1.getLatitudeRad();
 
     double y = std::sin(deltaLon) * std::cos(lat1);
-    double x = std::cos(lat0) * std::cos(lat1) -
-               std::sin(lat0) * std::cos(lat1) * cos(deltaLon);
+    double x = std::cos(lat0) * std::sin(lat1) -
+               std::sin(lat0) * std::cos(lat1) * std::cos(deltaLon);
 
     return ofWrapDegrees(glm::degrees(std::atan2(y, x)));
 
