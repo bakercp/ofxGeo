@@ -10,7 +10,7 @@
 
 #include <iostream>
 #include <string>
-#include "ofTypes.h"
+#include "ofVectorMath.h"
 
 
 namespace ofx {
