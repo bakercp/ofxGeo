@@ -38,7 +38,7 @@ double UTMLocation::getEasting() const
     return x;
 }
 
-    
+
 double UTMLocation::getNorthing() const
 {
     return y;
@@ -56,7 +56,7 @@ void UTMLocation::setEasting(double easting)
     x = easting;
 }
 
-    
+
 void UTMLocation::setNorthing(double northing)
 {
     y = northing;

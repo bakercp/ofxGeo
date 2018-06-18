@@ -39,7 +39,7 @@ public:
     /// \param coordinate0 The first location.
     /// \param coordinate1 The second location.
     /// \returns the spherical distance in kilometers.
-	static double distanceSpherical(const Coordinate& coordinate0,
+    static double distanceSpherical(const Coordinate& coordinate0,
                                     const Coordinate& coordinate1);
 
     /// \brief Get the distance in kilometers between two GeoLocations on earth.

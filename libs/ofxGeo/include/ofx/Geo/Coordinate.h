@@ -35,7 +35,7 @@ public:
     /// \brief Create a Coordinate with given latitude and logitude.
     /// \param latitude The latitude in degrees.
     /// \param longitude The longitude in degrees.
-	Coordinate(double latitude, double longitude);
+    Coordinate(double latitude, double longitude);
 
     /// \brief Destroy the Coordinate.
     virtual ~Coordinate();
@@ -201,7 +201,3 @@ template <> struct hash<ofx::Geo::ElevatedCoordinate>
 
 
 } // namespace std
-
-
-
-

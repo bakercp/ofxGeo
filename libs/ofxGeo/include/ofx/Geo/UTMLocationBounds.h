@@ -53,7 +53,7 @@ private:
 
     /// \brief the southeast corner of the UTMLocationBounds.
     UTMLocation _southeast;
-    
+
 };
 
 

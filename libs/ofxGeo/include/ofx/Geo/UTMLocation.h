@@ -29,7 +29,7 @@ public:
     /// \param easting the easting in meters.
     /// \param northing the northing in meters.
     /// \param zone the zone id.
-	UTMLocation(double easting, double northing, const std::string& zone);
+    UTMLocation(double easting, double northing, const std::string& zone);
 
     /// \brief Destory the UTMLocation.
     virtual ~UTMLocation();
@@ -123,7 +123,7 @@ public:
     /// \brief Set the zone id.
     /// \param zone the zone id.
     void setZone(const std::string& zone);
-    
+
     /// \brief Get the elevation in meters.
     /// \returns the elevation in meters.
     double getElevation() const;
@@ -145,6 +145,7 @@ public:
 private:
     /// \brief The Zone in the UTM system.
     std::string _zone;
+
 };
 
 
