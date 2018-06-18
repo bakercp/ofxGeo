@@ -1,5 +1,4 @@
-ofxGeo
-======
+# ofxGeo
 
 ## Description
 
@@ -37,8 +36,8 @@ Some past openFrameworks releases are supported via tagged versions, but only `s
 
 Some examples may require:
 
-- https://github.com/bakercp/ofxSatellite
-- https://github.com/bakercp/ofxTime
+-   [ofxSatellite](https://github.com/bakercp/ofxSatellite)
+-   [ofxTime](https://github.com/bakercp/ofxTime)
 
 ## Versioning
 
@@ -46,14 +45,14 @@ This project uses [Semantic Versioning](http://semver.org/), although strict adh
 
 ## Licensing
 
-See `LICENSE.md`.
+See [LICENSE.md](LICENSE.md).
 
 ## Contributing
 
 Pull Requests are always welcome, so if you make any improvements please feel free to float them back upstream :)
 
-1. Fork this repository.
-2. Create your feature branch (`git checkout -b my-new-feature`).
-3. Commit your changes (`git commit -am 'Add some feature'`).
-4. Push to the branch (`git push origin my-new-feature`).
-5. Create new Pull Request.
+1.  Fork this repository.
+2.  Create your feature branch (`git checkout -b my-new-feature`).
+3.  Commit your changes (`git commit -am 'Add some feature'`).
+4.  Push to the branch (`git push origin my-new-feature`).
+5.  Create new Pull Request.
