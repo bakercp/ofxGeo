@@ -6,6 +6,7 @@
 
 
 #include "ofx/Geo/UTMLocation.h"
+#include "ofx/Geo/GeoUtils.h"
 
 
 namespace ofx {
@@ -74,6 +75,16 @@ std::string UTMLocation::toString() const
     std::stringstream ss;
     ss << x << ", " << y << ", " << _zone;
     return ss.str();
+}
+
+    
+std::size_t UTMLocation::hash() const
+{
+    std::size_t seed = 0;
+    GeoUtils::hash(seed, x);
+    GeoUtils::hash(seed, y);
+    GeoUtils::hash(seed, _zone);
+    return seed;
 }
 
 
@@ -152,6 +163,17 @@ std::string ElevatedUTMLocation::toString() const
     std::stringstream ss;
     ss << x << ", " << y << "," << z << ", " << _zone;
     return ss.str();
+}
+
+    
+std::size_t ElevatedUTMLocation::hash() const
+{
+    std::size_t seed = 0;
+    GeoUtils::hash(seed, x);
+    GeoUtils::hash(seed, y);
+    GeoUtils::hash(seed, z);
+    GeoUtils::hash(seed, _zone);
+    return seed;
 }
 
 

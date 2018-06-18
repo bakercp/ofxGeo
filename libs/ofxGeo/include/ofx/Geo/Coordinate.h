@@ -77,7 +77,7 @@ public:
     /// \returns the a comma separated latitude / longitude pair.
     std::string toString(int precision = 8) const;
 
-    /// \returns a non-cryptographic hash.
+    /// \returns a non-cryptographic hash used for sorting.
     std::size_t hash() const;
 
     /// \brief Stream output.
@@ -148,7 +148,7 @@ public:
     /// \returns the a comma separated latitude, longitude, elevation.
     std::string toString() const;
 
-    /// \returns a non-cryptographic hash.
+    /// \returns a non-cryptographic hash used for sorting.
     std::size_t hash() const;
 
     /// \brief Stream output.

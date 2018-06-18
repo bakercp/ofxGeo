@@ -1,3 +1,1 @@
 ofxGeo
-ofxIO
-ofxPoco

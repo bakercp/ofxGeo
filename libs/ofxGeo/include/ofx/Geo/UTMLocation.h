@@ -62,6 +62,9 @@ public:
     /// \returns the a comma separated easting, northing, zone.
     std::string toString() const;
 
+    /// \returns a non-cryptographic hash.
+    std::size_t hash() const;
+    
     /// \brief Stream output.
     /// \param os the std::ostream.
     /// \param location The UTMLocation to output.
@@ -136,6 +139,9 @@ public:
     /// \returns the a comma separated easting, northing, zone, elevation.
     std::string toString() const;
 
+    /// \returns a non-cryptographic hash used for sorting.
+    std::size_t hash() const;
+
     /// \brief Stream output.
     /// \param os the std::ostream.
     /// \param coordinate The ElevatedUTMLocation to output.
@@ -157,3 +163,28 @@ inline std::ostream& operator << (std::ostream& os, const ElevatedUTMLocation& c
 
 
 } } // namespace ofx::Geo
+
+
+namespace std {
+
+
+template <> struct hash<ofx::Geo::UTMLocation>
+{
+    size_t operator()(const ofx::Geo::UTMLocation& coordinate) const
+    {
+        return coordinate.hash();
+    }
+};
+
+
+template <> struct hash<ofx::Geo::ElevatedUTMLocation>
+{
+    size_t operator()(const ofx::Geo::ElevatedUTMLocation& coordinate) const
+    {
+        return coordinate.hash();
+    }
+};
+
+
+
+} // namespace std
