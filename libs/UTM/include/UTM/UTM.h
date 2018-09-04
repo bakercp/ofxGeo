@@ -24,7 +24,7 @@
 #include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
-#include "ofConstants.h"
+#include "ofMathConstants.h"
 
 
 namespace UTM
